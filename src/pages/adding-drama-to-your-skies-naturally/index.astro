@@ -1,0 +1,297 @@
+---
+import '../../styles/blog.css';
+
+const assetPath = '/assets/blog/adding-drama-to-your-skies-naturally';
+const title = 'Adding Drama to Your Skies Naturally in Lightroom';
+const description =
+  'A dramatic sky can transform a good photo into a breathtaking one, but if done poorly, it can look fake and distract from your subject.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} - Ivan Chan</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://ivanpkchan.com/adding-drama-to-your-skies-naturally/" />
+    <meta property="og:title" content={`${title} - Ivan Chan`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content={`${assetPath}/No-Edit-scaled.jpg`} />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="/">IVAN <span>Chan</span></a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/course/">Course</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="article-hero">
+        <div class="article-shell">
+          <div class="eyebrow">Lightroom Tutorial</div>
+          <h1>{title}</h1>
+          <p class="dek">{description} Here are two cleaner ways to darken skies while preserving clouds and foreground detail.</p>
+          <div class="meta">
+            <span>By Ivan Chan</span>
+            <span>September 19, 2025</span>
+            <span>Photo Editing</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="post">
+        <div class="article-shell article-grid">
+          <article class="article-content">
+            <p>A dramatic sky can transform a good photo into a breathtaking one-but if done poorly, it can look fake and distract from your subject. One of the most common ways photographers darken skies is by dragging a linear gradient from the top of the image and reducing the exposure. It works-but only sometimes.</p>
+
+            <p>In my experience, the simple gradient method can make clouds look murky and darken foreground elements like mountain peaks or tree tops. When that happens, your photo loses realism and impact.</p>
+
+            <p>So how do we darken the sky while keeping clouds crisp and foreground elements intact? That’s what I’ll show you today. I’ve edited thousands of skies in my journey as a photographer and have found two methods that deliver a natural, clean look when the standard way just isn’t cutting it.</p>
+
+            <hr />
+
+            <h3>The Problem with the Standard Linear Gradient</h3>
+            <p>The standard approach-gradient + exposure reduction-can fail in two main ways:</p>
+
+            <ol>
+              <li><strong>Clouds look flat or murky</strong> because exposure affects both sky and clouds equally.</li>
+              <li><strong>Foreground elements are unintentionally darkened</strong> when tree tops, mountain peaks, or any object that protrudes into the sky start to look unnaturally dark.</li>
+            </ol>
+
+            <p>For instance, a dark mountain peak stands out immediately as “fake” because it’s visually disconnected from the rest of the scene. Similarly, flattening clouds can make an otherwise dynamic sky look dull.</p>
+
+            <figure class="comparison">
+              <div class="comparison-grid">
+                <div class="comparison-panel">
+                  <img src={`${assetPath}/DSC00682-Edit-Edit-Edit-scaled.jpg`} alt="Town in Switzerland with undarkened sky" />
+                  <span class="comparison-label">Before</span>
+                </div>
+                <div class="comparison-panel">
+                  <img src={`${assetPath}/DSC00682-Edit-Edit-Edit-2-scaled.jpg`} alt="Town in Switzerland with darkened sky" />
+                  <span class="comparison-label">After</span>
+                </div>
+              </div>
+              <figcaption>The sky has been darkened, but now the trees at the top of the cliff look unnaturally dark.</figcaption>
+            </figure>
+
+            <p>That’s why we need smarter techniques that target only the sky, leaving clouds and foreground untouched. In the next section, I’ll show you <strong>two methods that achieve this clean, dramatic look</strong>.</p>
+
+            <hr />
+
+            <h3>Method 1: The Blacks/Shadows Method</h3>
+            <p><strong>How it works:</strong><br />Instead of reducing exposure across the whole gradient-which darkens clouds and foreground-this method targets only the sky by adjusting the <strong>blacks</strong> or <strong>shadows</strong>.</p>
+
+            <p><strong>Steps:</strong></p>
+            <ol>
+              <li>Create a linear gradient from the top of your image: <strong>Masking &gt; Create New Mask &gt; Linear Gradient</strong>.</li>
+              <li>Drag down the <strong>blacks</strong> or <strong>shadows</strong> instead of exposure.</li>
+            </ol>
+
+            <p><strong>Why it works:</strong><br />The sky is usually darker than clouds, so lowering blacks or shadows affects the sky more than the clouds.</p>
+
+            <p><strong>Pros:</strong></p>
+            <ul>
+              <li>Quick and easy</li>
+              <li>Works better than the standard gradient for partial-cloud skies</li>
+            </ul>
+
+            <p><strong>Cons:</strong></p>
+            <ul>
+              <li>Doesn’t work well when clouds and sky are similar in brightness</li>
+              <li>Foreground elements may still be darkened slightly</li>
+              <li>Clouds may be affected a little</li>
+            </ul>
+
+            <hr />
+
+            <h3>Method 2: The Intersected Mask Method</h3>
+            <p><strong>How it works:</strong><br />This method isolates the sky entirely, leaving clouds and foreground untouched. It combines <strong>sky selection</strong>, a <strong>linear gradient</strong>, and <strong>color range masking</strong>.</p>
+
+            <p><strong>Steps:</strong></p>
+            <ol>
+              <li>Select the sky: <strong>Masking &gt; Create New Mask &gt; Select Sky</strong>.</li>
+              <li>Intersect this mask with a linear gradient from the top of the image: <strong>Right Click &gt; Intersect Mask with &gt; Linear Gradient</strong>.</li>
+              <li>Intersect again with a <strong>color range selector</strong> targeting the sky: <strong>Right Click &gt; Intersect Mask with &gt; Color Range</strong>.
+                <ul>
+                  <li>Optional: Use the <strong>Refine slider</strong> to include as much sky as possible without selecting clouds.</li>
+                </ul>
+              </li>
+              <li>Drag down the <strong>exposure</strong> on this mask.</li>
+            </ol>
+
+            <p><strong>Why it works:</strong><br />Masking the sky first ensures the foreground isn’t affected. Intersecting with the color range ensures clouds stay untouched. This method gives the cleanest, most natural look.</p>
+
+            <p><strong>Pros:</strong></p>
+            <ul>
+              <li>Keeps clouds and foreground completely intact</li>
+              <li>Great for sunny days with partial clouds</li>
+            </ul>
+
+            <p><strong>Cons:</strong></p>
+            <ul>
+              <li>Slightly more steps, but not complicated</li>
+              <li>Sky selection masks can occasionally need minor tweaks</li>
+            </ul>
+
+            <hr />
+
+            <h3>Quick Comparison</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Speed</th>
+                    <th>Sky-only darkening</th>
+                    <th>Cloud preservation</th>
+                    <th>Foreground preservation</th>
+                    <th>Best use</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Blacks/Shadows</td>
+                    <td>Fast</td>
+                    <td>Mostly</td>
+                    <td>Some</td>
+                    <td>Partial</td>
+                    <td>Quick edits, partial clouds</td>
+                  </tr>
+                  <tr>
+                    <td>Intersected Mask</td>
+                    <td>Medium</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Best results, sunny days, tricky skies</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <figure class="comparison">
+              <div class="comparison-grid">
+                <div class="comparison-panel">
+                  <img src={`${assetPath}/No-Edit-scaled.jpg`} alt="Undarkened sky" />
+                  <span class="comparison-label">Undarkened Sky</span>
+                </div>
+                <div class="comparison-panel">
+                  <img src={`${assetPath}/Standard-scaled.jpg`} alt="Standard linear gradient with reduced exposure" />
+                  <span class="comparison-label">Standard Gradient</span>
+                </div>
+              </div>
+              <figcaption><strong>Undarkened Sky vs Standard Linear Gradient with Reduced Exposure</strong> - notice how the clouds become murky and the tip of the mountain gets darkened.</figcaption>
+            </figure>
+
+            <figure class="comparison">
+              <div class="comparison-grid">
+                <div class="comparison-panel">
+                  <img src={`${assetPath}/BlacksShadows-scaled.jpg`} alt="Blacks and shadows method" />
+                  <span class="comparison-label">Blacks/Shadows</span>
+                </div>
+                <div class="comparison-panel">
+                  <img src={`${assetPath}/Intersection-scaled.jpg`} alt="Intersected mask method" />
+                  <span class="comparison-label">Intersected Mask</span>
+                </div>
+              </div>
+              <figcaption><strong>Blacks/Shadows Method vs Intersected Mask Method</strong> - notice how the Intersected Mask Method preserves the brightness of the clouds and the mountain peak a bit better.</figcaption>
+            </figure>
+
+            <p>For this particular photo, I think the Intersected Mask Method looks the best.</p>
+
+            <h3>Pro Tip</h3>
+            <p>Sometimes you <strong>do want</strong> dark clouds-for stormy moods or overcast days. The standard gradient + exposure method can look amazing for that, but only when it makes sense for the weather. Otherwise, these targeted methods will give your skies drama <strong>without looking fake</strong>.</p>
+
+            <p>Here’s a simple rule of thumb to decide which technique to use:</p>
+
+            <ul>
+              <li><strong>Overcast skies / full cloud cover:</strong>
+                <ul>
+                  <li>Go with the <strong>standard linear gradient</strong>.</li>
+                  <li>Optional: Subtract the foreground from your mask so it doesn’t darken the land.</li>
+                  <li>Perfect for creating dramatic, stormy skies.</li>
+                </ul>
+              </li>
+              <li><strong>Sunny or partly cloudy skies:</strong>
+                <ul>
+                  <li>Try one of the <strong>two alternative methods</strong>:
+                    <ul>
+                      <li><strong>Blacks/Shadows Method</strong> for a quick, partial-sky adjustment.</li>
+                      <li><strong>Intersected Mask Method</strong> for precise control over clouds and foreground.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <p>Think of it like this: use the simple method when the whole sky is meant to look moody, and the targeted methods when you need <strong>drama without compromising realism</strong>.</p>
+
+            <figure class="comparison">
+              <div class="comparison-grid">
+                <div class="comparison-panel">
+                  <img src={`${assetPath}/Undark-scaled.jpg`} alt="Mountains with undarkened sky" />
+                  <span class="comparison-label">Before</span>
+                </div>
+                <div class="comparison-panel">
+                  <img src={`${assetPath}/ivanpkhc_497628742_18065657009485162_4171430113575022270_n.jpg`} alt="Mountains with darkened sky" />
+                  <span class="comparison-label">After</span>
+                </div>
+              </div>
+              <figcaption>Here’s an example where the standard linear gradient works well on an overcast day.</figcaption>
+            </figure>
+
+            <hr />
+
+            <h3>Final Thoughts</h3>
+            <p>Darkening the sky can completely transform your photos-but only if done thoughtfully. Using these two methods, you can add drama <strong>without flattening clouds or darkening foreground elements</strong>.</p>
+
+            <p>Experiment with both techniques and see which works best for each photo. Over time, you’ll develop a sense of when to use a quick adjustment and when a more precise approach is needed.</p>
+
+            <p>If you found these tips helpful and want more like them, <strong><a href="https://ivanpkchan.kit.com/f821cf6cf3" target="_blank" rel="noopener">sign up for my newsletter</a></strong> to get notified whenever I post new tutorials.</p>
+
+            <p>And if any of the steps feel confusing or unclear, drop a comment or send me a message-I’m happy to clarify or update the post so it’s easy to follow.</p>
+
+            <section class="newsletter" aria-labelledby="newsletter-heading">
+              <h3 id="newsletter-heading">Join my Newsletter</h3>
+              <p>Get notified whenever I publish new tips, tricks, and techniques on this blog, plus exclusive resources.</p>
+              <form class="newsletter-form" action="https://app.kit.com/forms/8589543/subscriptions" method="post">
+                <input aria-label="First Name" name="fields[first_name]" placeholder="First Name" required type="text" />
+                <input aria-label="Email Address" name="email_address" placeholder="Email Address" required type="email" />
+                <button type="submit">Subscribe</button>
+              </form>
+            </section>
+          </article>
+
+          <aside class="sidebar" aria-label="About Ivan">
+            <div class="sidebar-card">
+              <img src={`${assetPath}/128583758_1472621369604783_5945237435409179367_n-2-modified-1024x1024.png`} alt="Portrait of Ivan Chan" />
+              <h2>Hi! I'm Ivan.</h2>
+              <p>I'm a Canadian travel and adventure photographer that’s explored 40+ countries. I’ve spent thousands of hours in Lightroom and Photoshop refining techniques to create clean, visually impactful images.</p>
+              <p><strong>I’m here to share what I’ve learned to help you create the photos of your dreams.</strong></p>
+            </div>
+            <div class="sidebar-card">
+              <h3>Recent Posts</h3>
+              <ul>
+                <li><a href="/adding-drama-to-your-skies-naturally/">Adding Drama to Your Skies Naturally in Lightroom</a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-row">
+        <span>© 2026 Ivan Chan Photography</span>
+        <span>Tips, tutorials, and inspiration for landscape photographers</span>
+      </div>
+    </footer>
+  </body>
+</html>

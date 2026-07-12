@@ -1,0 +1,107 @@
+---
+import '../../styles/blog.css';
+
+const title = 'Blog';
+const description = 'Tips, tricks & techniques to improve your editing.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} - Ivan Chan</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://ivanpkchan.com/blog/" />
+    <meta property="og:title" content={`${title} - Ivan Chan`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/blog-list/drama-skies.jpg" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="/">IVAN <span>Chan</span></a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/course/">Course</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="blog-list-hero">
+        <div class="article-shell blog-list-head">
+          <div>
+            <div class="eyebrow">Blog</div>
+            <h1>Tips, Tricks & Techniques to Improve Your Editing</h1>
+          </div>
+          <p>
+            Practical photo editing lessons for building cleaner, more natural, and more visually impactful images.
+          </p>
+        </div>
+      </section>
+
+      <section class="blog-index">
+        <div class="article-shell blog-layout">
+          <article class="post-card">
+            <a class="post-card-image" href="/adding-drama-to-your-skies-naturally/">
+              <img src="/assets/blog-list/drama-skies.jpg" alt="Monument Valley landscape with dramatic sky" />
+            </a>
+            <div class="post-card-copy">
+              <div class="post-meta">By Ivan Chan · September 19, 2025</div>
+              <h2>
+                <a href="/adding-drama-to-your-skies-naturally/">Adding Drama to Your Skies Naturally in Lightroom</a>
+              </h2>
+              <p>
+                A dramatic sky can transform a good photo into a breathtaking one-but if done poorly, it can look fake
+                and distract from your subject.
+              </p>
+              <a class="text-link" href="/adding-drama-to-your-skies-naturally/">
+                Read more: Adding Drama to Your Skies Naturally in Lightroom
+              </a>
+            </div>
+          </article>
+
+          <aside class="blog-aside">
+            <div class="sidebar-card">
+              <img src="/assets/blog/adding-drama-to-your-skies-naturally/128583758_1472621369604783_5945237435409179367_n-2-modified-1024x1024.png" alt="Ivan Chan" />
+              <h2>Ivan Chan</h2>
+              <p>Canadian travel and adventure photographer sharing Lightroom, Photoshop, and visual editing lessons.</p>
+            </div>
+            <div class="sidebar-card">
+              <h3>Start here</h3>
+              <ul>
+                <li><a href="/adding-drama-to-your-skies-naturally/">Adding Drama to Your Skies Naturally in Lightroom</a></li>
+                <li><a href="/course/">Advanced Photo Editing Masterclass</a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="newsletter-section">
+        <div class="article-shell newsletter wide-newsletter">
+          <div>
+            <div class="eyebrow">Join my Newsletter</div>
+            <h2>Get notified whenever I publish new tips, tricks, and techniques on this blog + exclusive resources.</h2>
+            <p>I respect your privacy. Unsubscribe at anytime.</p>
+          </div>
+          <form class="home-newsletter-form" action="https://app.kit.com/forms/8589543/subscriptions" method="post">
+            <input name="fields[first_name]" placeholder="First Name" type="text" aria-label="First Name" required />
+            <input name="email_address" placeholder="Email Address" type="email" aria-label="Email Address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-row">
+        <span>© 2026 Ivan Chan Photography</span>
+        <span>Tips, tricks & techniques to improve your editing</span>
+      </div>
+    </footer>
+  </body>
+</html>
