@@ -19,7 +19,7 @@ import '../../styles/global.css';
       <div class="wrap nav-inner">
         <div class="brand">IVAN <span>Chan</span></div>
         <div class="nav-links">
-          <a href="#framework">Framework</a>
+          <a href="#framework">The Framework</a>
           <a href="#curriculum">Curriculum</a>
           <a href="#bonuses">Bonuses</a>
           <a class="btn btn-dark" href="#enroll">Join the waitlist</a>
@@ -39,7 +39,7 @@ import '../../styles/global.css';
           and make it look the way you actually imagined.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-dark" href="#enroll">Get early access ↗</a>
+          <a class="btn btn-dark" href="#enroll">Join the waitlist ↗</a>
           <a class="btn btn-light" href="#framework">See how it works</a>
         </div>
       </div>
@@ -58,40 +58,52 @@ import '../../styles/global.css';
       <div class="wrap intro-grid">
         <div>
           <div class="eyebrow">The gap nobody talks about</div>
-          <h2 class="display">You know Lightroom.<br />But your edits still feel <span class="marker">inconsistent.</span></h2>
+          <h2 class="display">You know Lightroom.<br />But you know your edits could be <span class="marker">better.</span></h2>
         </div>
         <div class="intro-copy">
           <p>
-            You’ve watched the tutorials. You understand exposure, colour, masking, and curves. But when a new RAW file
-            opens, you still find yourself experimenting until something looks “good enough.”
+            You’ve watched plenty of Youtube tutorials. You understand what most of the sliders and tools do. But when a new RAW file
+            opens, you still find yourself experimenting until something looks “<span class="marker">good enough</span>.”
           </p>
           <p>
-            The problem isn’t that you need another list of slider settings. You need a stronger understanding of
-            <strong>what makes an image work visually</strong>-and a repeatable way to decide what to change, where to
+            The problem isn’t that you need another list of slider settings. You need a stronger understanding of 
+            <strong><span class="marker"> what makes an image work visually</span></strong> - and a repeatable way to decide what to change, where to
             change it, and why.
           </p>
         </div>
       </div>
+      <div class="wrap problem-header">
+        <div class="eyebrow">WHAT I SEE MOST INTERMEDIATE EDITORS STRUGGLE WITH</div>
+      </div>
       <div class="wrap problem-cards" data-stagger>
         <article class="card">
           <div class="card-num">01</div>
-          <h3>You can copy an edit, but not recreate the thinking.</h3>
-          <p>Tutorials often show what someone did without teaching the judgment behind it.</p>
+          <h3>Knowing what to change</h3>
+          <p>Tutorials often show what someone did without teaching the core visual principles of color, contrast, and attention behind it. So you never know when to apply it in your own images outside of that specific scenario.</p>
         </article>
         <article class="card">
           <div class="card-num">02</div>
-          <h3>Your image gets punchier-but also messier.</h3>
-          <p>Global edits increase impact until colour, contrast, halos, and visual distractions start breaking the image.</p>
+          <h3>Knowing what tools to reach for</h3>
+          <p>Many tools in Lightroom are powerful, but they can introduce unwanted side effects that go unnoticed. The compounding of these effects is what causes an image to fall apart over time. This is where a deep understanding of the trade-offs of different tools becomes important.</p>
         </article>
         <article class="card">
           <div class="card-num">03</div>
-          <h3>You know the tools, but not which one to reach for.</h3>
-          <p>Advanced editing is less about knowing more tools and more about making better decisions.</p>
+          <h3>Knowing how to make elements work in harmony</h3>
+          <p>Advanced editing is less about using increasingly complex techniques and more about how to use color, saturation, and luminance to make elements work in harmony.</p>
         </article>
+      </div>
+      <div class="wrap bridge-copy" data-reveal>
+        <h3>This is what I’m here to help you with.</h3>
+        <p>
+          The goal isn’t to memorize more tools. It’s to build a <span class="marker">way of seeing, diagnosing, and editing</span> that you can bring to any photo.
+        </p>
       </div>
     </section>
 
-    <section class="section dark" id="framework" data-reveal>
+    <section class="section dark chess-section" id="framework" data-reveal>
+      <div class="king-stage" aria-hidden="true">
+        <canvas id="chess-king-canvas"></canvas>
+      </div>
       <div class="wrap">
         <div class="framework-head">
           <div>
@@ -131,23 +143,48 @@ import '../../styles/global.css';
       </div>
       <div class="split-copy">
         <div class="eyebrow">The real skill</div>
-        <h2 class="display">Learn to think like an editor.</h2>
+        <h2 class="display">Learn to <span class="marker">think</span> like an editor.</h2>
         <p>
-          The course does not dictate how your images should look. It teaches you how brightness, contrast, colour,
-          saturation, texture, balance, and visual flow affect what a viewer notices.
+          I’m not here to teach you how your photos should look or to simply recreate my style (although you’ll be able
+          to by the end). 
         </p>
-        <div class="quote">“Software changes. The ability to see what an image needs does not.”</div>
         <p>
-          Once you understand the principles, you can create a muted edit, a punchy edit, a natural edit, or something
-          completely your own-without relying on recipes.
+        I’m here to teach you the principles behind visual aesthetics—<span class="accent-words">brightness,
+          color, contrast, texture, and visual flow</span>—so you can make <span class="marker">your</span> style look
+          beautiful.
+        </p>
+        <p>
+          Think of it as learning how to fish instead of relying on someone else to keep giving you fish.
+        </p>
+        <p>
+          Today’s editing tools evolve rapidly. It feels like Lightroom releases new features every month. But the
+          <span class="marker"> principles behind what makes an image look good</span> don’t change.
+        </p>
+        <div class="quote">
+          “Software changes. The <span class="marker">ability to see what an image needs</span> does not.”
+        </div>
+        <p>
+          Once you understand those principles, you’ll be able to evaluate any new editing tool—its strengths, its
+          weaknesses, and when to use it—without waiting for another tutorial to tell you.
         </p>
       </div>
     </section>
 
     <section class="section curriculum" id="curriculum" data-reveal>
       <div class="wrap">
-        <div class="eyebrow">Inside the masterclass</div>
-        <h2 class="display">From “something feels off”<br />to knowing exactly why.</h2>
+        <div class="masterclass-head">
+          <figure class="masterclass-pages" aria-hidden="true">
+            <img src="/assets/course-editing-cropped.png" alt="" />
+          </figure>
+          <h2 class="display">Inside the Masterclass</h2>
+          <p class="curriculum-subtitle">From “something feels off” to knowing exactly why.</p>
+          <div class="curriculum-pills" aria-label="Course details" data-stagger>
+            <span>29 lessons</span>
+            <span>7 modules</span>
+            <span>Text-based Theory with Visual Examples</span>
+            <span>Video Walkthroughs</span>
+          </div>
+        </div>
         <div class="modules" data-stagger>
           <div class="module"><div class="module-index">01</div><h3>Orientation & the Editing Framework</h3><p>Build the mindset, workflow, and C.H.E.S.S. structure that organizes the entire editing process.</p></div>
           <div class="module"><div class="module-index">02</div><h3>Seeing Like an Editor</h3><p>Understand visual attention, weight, balance, flow, hierarchy, and how the eye moves through an image.</p></div>
@@ -157,24 +194,74 @@ import '../../styles/global.css';
           <div class="module"><div class="module-index">06</div><h3>Stylize</h3><p>Shape mood and identity using creative light, colour, atmosphere, and intentional departures from reality.</p></div>
           <div class="module"><div class="module-index">07</div><h3>Full Edit Walkthroughs</h3><p>Watch the entire decision-making process unfold across different kinds of challenging RAW files.</p></div>
         </div>
+        <div class="course-preview" data-reveal>
+          <figure class="course-preview-screen">
+            <img src="/assets/course-editing-walkthrough.png" alt="Screenshot of a video walkthrough lesson inside the course" />
+          </figure>
+        </div>
+        <div class="exercise-feature" data-reveal>
+          <div class="exercise-copy">
+            <h3><span class="marker">20 practical exercises</span> with included RAWs</h3>
+            <p>
+              Designed to isolate particular stages of the edit so you can practice applying specific theories and
+              techniques. This is the best way to <span class="marker">lock in the new learnings</span>, and is what
+              most photography courses miss.
+            </p>
+          </div>
+          <div class="exercise-stack" aria-label="Course exercise screenshots">
+            <figure class="exercise-card exercise-card-back">
+              <img src="/assets/course-exercises.png" alt="Screenshot of a practical course exercise" />
+            </figure>
+            <figure class="exercise-card exercise-card-front">
+              <img src="/assets/course-exercise-list.png" alt="Screenshot of the course exercise list" />
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section dark" data-reveal>
-      <div class="wrap">
-        <div class="framework-head">
-          <div>
-            <div class="eyebrow">Built around real images</div>
-            <h2 class="display">Not sterile demos.</h2>
-          </div>
-          <p class="muted">Adventure, landscape, travel, difficult light, complex colour, and scenes where local decisions matter.</p>
+    <section class="scroll-edit dark" data-scroll-edit style="--edit-progress: 0">
+      <div class="scroll-edit-sticky">
+        <div class="wrap scroll-edit-inner">
+          <h2 class="display scroll-edit-title">
+            <span>Learn how to take images</span>
+            <span class="scroll-edit-word" aria-live="polite">
+              <span>from this</span>
+              <span>to this</span>
+            </span>
+          </h2>
+          <figure class="scroll-edit-frame" aria-label="Raw to edited image comparison">
+            <img class="scroll-edit-img scroll-edit-raw" src="/assets/course-huemul-raw.jpg" alt="RAW mountain landscape before editing" />
+            <img class="scroll-edit-img scroll-edit-final" src="/assets/course-huemul-edited.jpg" alt="Fully edited mountain landscape after editing" />
+          </figure>
         </div>
-        <div class="gallery" data-stagger>
-          <figure><img src="/assets/gallery-primary-example.jpg" alt="Large cave landscape" /><figcaption>Clean + visual hierarchy</figcaption></figure>
-          <figure><img src="/assets/gallery-subject-separation.jpg" alt="Night climber above a city" /><figcaption>Attention + separation</figcaption></figure>
-          <figure><img src="/assets/final-cta-background.jpg" alt="Person crossing a glacier" /><figcaption>Depth + atmosphere</figcaption></figure>
-          <figure><img src="/assets/gallery-harmony-flow.jpg" alt="Waterfall in a forest" /><figcaption>Harmony + flow</figcaption></figure>
-          <figure><img src="/assets/gallery-impact-mood.jpg" alt="Volcano at dusk" /><figcaption>Impact + mood</figcaption></figure>
+      </div>
+    </section>
+
+
+    <section class="image-gallery dark" data-image-gallery aria-label="Course image gallery">
+      <div class="image-gallery-track" data-gallery-track>
+        <div class="image-gallery-set">
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/China.jpg" alt="Mountain landscape in China" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Iceland.jpg" alt="Iceland landscape photograph" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Philippines-2.jpg" alt="Philippines coastal landscape" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Washington.jpg" alt="Washington mountain landscape" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Washington-2.jpg" alt="Washington forest and mountain scene" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Patagonia.jpg" alt="Patagonia mountain landscape" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Philippines.jpg" alt="Philippines island landscape" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Vietnam.jpg" alt="Vietnam landscape photograph" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Indonesia.jpg" alt="Indonesia landscape photograph" draggable="false" /></figure>
+        </div>
+        <div class="image-gallery-set" aria-hidden="true">
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/China.jpg" alt="" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Iceland.jpg" alt="" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Philippines-2.jpg" alt="" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Washington.jpg" alt="" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Washington-2.jpg" alt="" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Patagonia.jpg" alt="" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Philippines.jpg" alt="" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Vietnam.jpg" alt="" draggable="false" /></figure>
+          <figure class="image-gallery-item"><img src="/assets/course-gallery/Indonesia.jpg" alt="" draggable="false" /></figure>
         </div>
       </div>
     </section>
@@ -185,10 +272,6 @@ import '../../styles/global.css';
         <h2 class="display">Resources you’ll keep using<br />after the course ends.</h2>
         <div class="bonus-grid" data-stagger>
           <article class="bonus-card"><div class="bonus-icon">✓</div><div><h3>C.H.E.S.S. Editing Checklist</h3><p>A printable, repeatable workflow to keep beside Lightroom until the process becomes second nature.</p></div></article>
-          <article class="bonus-card"><div class="bonus-icon">↳</div><div><h3>Lightroom Tool Decision Tree</h3><p>Start with the editing problem and quickly narrow down the best tool for the job.</p></div></article>
-          <article class="bonus-card"><div class="bonus-icon">◎</div><div><h3>Visual Attention Cheat Sheet</h3><p>A concise reference for brightness, contrast, saturation, texture, isolation, balance, and visual weight.</p></div></article>
-          <article class="bonus-card"><div class="bonus-icon">◐</div><div><h3>Colour Harmony Guide</h3><p>Practical colour relationships, emotional associations, and real-image examples-not just abstract colour wheels.</p></div></article>
-          <article class="bonus-card"><div class="bonus-icon">?</div><div><h3>“What Feels Off?” Workbook</h3><p>Practice diagnosing weak visual flow, distractions, muddy colour, poor separation, and imbalanced attention.</p></div></article>
           <article class="bonus-card"><div class="bonus-icon">RAW</div><div><h3>RAW Practice Library</h3><p>Work through increasingly difficult files and compare your choices against completed reference edits.</p></div></article>
         </div>
       </div>
@@ -201,14 +284,14 @@ import '../../styles/global.css';
           <h2 class="display">A community built around better feedback.</h2>
           <p>Submit your edits, learn from selected critiques, and practice articulating why an image works-not just whether you like it.</p>
           <ul class="tick-list">
-            <li>Recurring live group critique sessions</li>
+            <li>Recurring live editing walkthroughs & group critique sessions</li>
             <li>Structured peer feedback using C.H.E.S.S.</li>
             <li>Editing challenges and practice prompts</li>
             <li>A growing archive of real-world critiques</li>
           </ul>
         </div>
         <div class="community-photo">
-          <img src="/assets/community-section.jpg" alt="Dramatic mountain peak above clouds" />
+          <img src="/assets/community.jpg" alt="Community of photographers learning together" />
         </div>
       </div>
     </section>
@@ -258,10 +341,11 @@ import '../../styles/global.css';
     <footer>
       <div class="wrap footer-row">
         <span>© 2026 Ivan Chan Photography</span>
-        <span>Advanced Photo Editing Masterclass · Concept landing page</span>
+        <span>Advanced Photo Editing Masterclass</span>
       </div>
     </footer>
 
     <script src="../../scripts/landing-page.js"></script>
+    <script src="../../scripts/chess-king.js"></script>
   </body>
 </html>
