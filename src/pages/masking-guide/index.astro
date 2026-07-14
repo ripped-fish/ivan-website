@@ -1,0 +1,192 @@
+---
+import '../../styles/global.css';
+
+const title = 'Free Lightroom Masking Starter Guide - Ivan Chan';
+const description =
+  'Get Ivan Chan’s free Lightroom Masking Starter Guide and learn when to use masks, why they matter, and how to get cleaner edits.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico?v=2" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://ivanpkchan.com/masking-guide/" />
+    <meta property="og:title" content="Lightroom Masking Starter Guide" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/course-gallery/Indonesia.jpg" />
+  </head>
+  <body class="masking-page">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <nav class="masking-nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="/">IVAN <span>Chan</span></a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/course/">Course</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <header class="masking-hero">
+        <div class="masking-hero-bg">
+          <img src="/assets/course-gallery/Indonesia.jpg" alt="Lush green landscape photographed from above" />
+        </div>
+        <div class="wrap masking-hero-inner">
+          <div class="masking-hero-copy" data-reveal>
+            <div class="eyebrow">Free Lightroom Guide</div>
+            <h1 class="display">Lightroom Masking <span class="marker">Starter Guide</span></h1>
+            <p class="masking-lede">
+              Masking is an ESSENTIAL tool for creating photos that wow.
+              <span>
+                In my workflow, 80% of the work is done with masks, and it is how I'm able to shape light and maximize
+                visual impact.
+              </span>
+              <span>In this free no-frills guide, I share how to get started with masks in Lightroom.</span>
+            </p>
+            <div class="masking-actions">
+              <a class="btn btn-dark" href="#get-guide">Get the free guide</a>
+              <span>PDF guide for Lightroom editors</span>
+            </div>
+          </div>
+
+          <div class="masking-guide-preview" data-reveal="scale">
+            <figure class="masking-cover-image">
+              <img src="/assets/free-masking-guide-cover.jpg" alt="Cover of the Lightroom Masking Starter Guide" />
+            </figure>
+          </div>
+        </div>
+      </header>
+
+      <section class="masking-learn-band" data-reveal>
+        <div class="wrap masking-learn-grid">
+          <div>
+            <div class="eyebrow">What you’ll learn</div>
+            <h2 class="display">Use masks with more <span class="marker">intention.</span></h2>
+          </div>
+          <ul class="masking-learn-list" data-stagger>
+            <li>
+              <span>01</span>
+              <strong>Why masks are so useful</strong>
+              <p>Understand how local adjustments let you shape attention without disturbing the whole image.</p>
+            </li>
+            <li>
+              <span>02</span>
+              <strong>When you should use masks</strong>
+              <p>Know when a global adjustment is enough and when a targeted edit will produce a cleaner result.</p>
+            </li>
+            <li>
+              <span>03</span>
+              <strong>Best practices for clean results</strong>
+              <p>Avoid the common artifacts and over-edited edges that make masks feel obvious.</p>
+            </li>
+            <li>
+              <span>04</span>
+              <strong>Three simple masking techniques</strong>
+              <p>Apply practical techniques right away to add impact, depth, and better visual flow.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="masking-form-section" id="get-guide" data-reveal="scale">
+        <div class="wrap masking-form-card">
+          <div class="masking-form-copy">
+            <div class="eyebrow">Get the guide</div>
+            <h2 class="display">Start making more precise Lightroom edits.</h2>
+            <p>
+              Enter your details to receive the guide. You’ll also receive periodic emails from me with more editing
+              tips - unsubscribe anytime.
+            </p>
+          </div>
+          <form
+            class="masking-form formkit-form"
+            method="POST"
+            action="https://app.kit.com/forms/8639788/subscriptions"
+            data-sv-form="8639788"
+            data-uid="811b5950f3"
+            data-kit-background-form
+          >
+            <label>
+              <span>First Name</span>
+              <input name="fields[first_name]" placeholder="First Name" type="text" autocomplete="given-name" required />
+            </label>
+            <label>
+              <span>Email Address</span>
+              <input name="email_address" placeholder="Email Address" type="email" autocomplete="email" required />
+            </label>
+            <button type="submit">Send me the guide</button>
+            <p class="masking-form-note">We respect your privacy. Unsubscribe at any time.</p>
+            <p class="masking-form-message" data-form-message aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-row">
+        <span>© 2026 Ivan Chan Photography</span>
+        <span>Lightroom Masking Starter Guide</span>
+      </div>
+    </footer>
+
+    <script src="../../scripts/landing-page.js"></script>
+    <script is:inline>
+      (() => {
+        const form = document.querySelector('[data-kit-background-form]');
+        if (!form) return;
+
+        const button = form.querySelector('button[type="submit"]');
+        const message = form.querySelector('[data-form-message]');
+        const defaultButtonText = button?.textContent || 'Send me the guide';
+
+        const setMessage = (type, text) => {
+          if (!message) return;
+          message.textContent = text;
+          message.dataset.state = type;
+        };
+
+        form.addEventListener('submit', async (event) => {
+          if (!form.checkValidity()) return;
+          event.preventDefault();
+
+          const controller = new AbortController();
+          const timeoutId = window.setTimeout(() => controller.abort(), 12000);
+
+          setMessage('pending', 'Sending...');
+          if (button) {
+            button.disabled = true;
+            button.textContent = 'Sending...';
+          }
+
+          try {
+            await fetch(form.action, {
+              method: 'POST',
+              mode: 'no-cors',
+              body: new URLSearchParams(new FormData(form)),
+              signal: controller.signal,
+            });
+
+            setMessage('success', 'thank you for subscribing! check your email for the guide');
+            form.reset();
+          } catch {
+            setMessage('error', 'Something went wrong. Please try again in a moment.');
+          } finally {
+            window.clearTimeout(timeoutId);
+            if (button) {
+              button.disabled = false;
+              button.textContent = defaultButtonText;
+            }
+          }
+        });
+      })();
+    </script>
+    <script async src="https://pages.convertkit.com/ckjs/ck.6.js"></script>
+  </body>
+</html>
