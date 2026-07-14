@@ -18,7 +18,7 @@ a{color:inherit}
 .btn-light:hover{background:#fff}
 nav{position:absolute;z-index:4;top:0;left:0;right:0;color:white;padding:24px 0}
 .nav-inner{display:flex;align-items:center;justify-content:space-between}
-.brand{font-weight:900;letter-spacing:.02em}.brand span{font-family:Georgia,serif;font-weight:400;font-style:italic}
+.brand{font-weight:900;letter-spacing:.02em;text-decoration:none}.brand span{font-family:Georgia,serif;font-weight:400;font-style:italic}
 .nav-links{display:flex;gap:25px;align-items:center;font-size:.9rem}
 .nav-links a{text-decoration:none;opacity:.9}
 .hero{min-height:820px;position:relative;display:flex;align-items:flex-end;color:#fff;background:#111;overflow:hidden}
@@ -74,6 +74,17 @@ nav{position:absolute;z-index:4;top:0;left:0;right:0;color:white;padding:24px 0}
 .split-copy p .marker{color:var(--ink)}
 .accent-words{font-weight:850;color:var(--rust)}
 .quote{font-family:Georgia,serif;font-size:1.8rem;line-height:1.3;border-left:4px solid var(--rust);padding-left:25px;margin:30px 0}
+.about-ivan{background:var(--cream)}
+.about-ivan-grid{display:grid;grid-template-columns:minmax(320px,.72fr) minmax(0,1fr);gap:104px;align-items:center}
+.about-ivan-photo{margin:0;aspect-ratio:3/4;overflow:hidden;background:#0d0f0c;box-shadow:0 34px 86px rgba(16,20,15,.16)}
+.about-ivan-photo img{object-position:center center}
+.about-ivan-copy{max-width:720px}
+.about-ivan-heading{display:block}
+.about-ivan-copy h2{font-size:clamp(3.6rem,6vw,6.4rem);margin:12px 0 28px}
+.about-ivan-mobile-photo{display:none}
+.about-ivan-copy p{font-size:1.08rem;line-height:1.68;color:var(--muted);margin:0 0 18px}
+.about-ivan-copy p:first-of-type{font-size:1.28rem;font-weight:800;color:var(--ink)}
+.about-ivan-copy em{font-family:Georgia,"Times New Roman",serif;color:var(--ink)}
 .curriculum h2,.bonus h2,.community h2,.faq h2{font-size:clamp(3.4rem,6vw,6.6rem);margin:0 0 45px}
 .masterclass-head{position:relative;isolation:isolate;min-height:390px;padding-top:120px;margin-bottom:34px}
 .masterclass-head:after{content:"";position:absolute;inset:-20px 0 0;z-index:-1;background:linear-gradient(180deg,rgba(243,240,232,.24),rgba(243,240,232,.74) 72%,var(--paper));pointer-events:none}
@@ -161,6 +172,7 @@ nav{position:absolute;z-index:4;top:0;left:0;right:0;color:white;padding:24px 0}
 details{border-top:1px solid var(--line);padding:22px 0}
 details:last-child{border-bottom:1px solid var(--line)}
 summary{cursor:pointer;font-weight:800;font-size:1.1rem}
+.faq-subtitle{margin:22px 0 8px;font-size:.86rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--rust)}
 details p{color:var(--muted);max-width:760px}
 .final-cta{position:relative;min-height:720px;color:white;display:flex;align-items:center;text-align:center;overflow:hidden}
 .final-cta:after{content:"";position:absolute;inset:0;background:rgba(6,10,7,.62)}
@@ -169,6 +181,15 @@ details p{color:var(--muted);max-width:760px}
 .final-inner h2{font-size:clamp(4rem,8vw,8rem);margin:0 0 25px}
 footer{background:var(--ink);color:white;padding:35px 0}
 .footer-row{display:flex;justify-content:space-between;gap:20px;font-size:.85rem;color:rgba(255,255,255,.65)}
+@media(max-width:1300px){
+ .about-ivan-grid{grid-template-columns:1fr;gap:30px}
+ .about-ivan-grid > .about-ivan-photo{display:none}
+ .about-ivan-heading{display:grid;grid-template-columns:118px 1fr;gap:22px;align-items:center;margin:14px 0 26px}
+ .about-ivan-mobile-photo{display:block;width:118px;aspect-ratio:1;margin:0;border-radius:50%;overflow:hidden;background:#0d0f0c;box-shadow:0 18px 40px rgba(16,20,15,.16)}
+ .about-ivan-mobile-photo img{object-position:50% 35%}
+ .about-ivan-copy{max-width:760px}
+ .about-ivan-copy h2{font-size:clamp(3rem,8vw,5.1rem);margin:0}
+}
 @media(max-width:900px){
  .nav-links a:not(.btn){display:none}
  .intro-grid,.community-grid,.price-card{grid-template-columns:1fr}
@@ -204,6 +225,11 @@ footer{background:var(--ink);color:white;padding:35px 0}
  .chess{grid-template-columns:1fr}
  .chess-card{min-height:240px;grid-template-rows:110px 1fr}
  .chess-letter{height:86px}
+ .about-ivan-grid{gap:24px}
+ .about-ivan-heading{display:grid;grid-template-columns:104px 1fr;gap:18px;align-items:center;margin:14px 0 24px}
+ .about-ivan-mobile-photo{width:104px}
+ .about-ivan-copy h2{font-size:clamp(2.45rem,12vw,4rem);margin:0}
+ .about-ivan-copy p{font-size:1rem}
  .bonus-card{grid-template-columns:1fr}
  .module{grid-template-columns:1fr}.module p{grid-column:auto}
  .masterclass-head{min-height:310px;padding-top:92px;margin-bottom:28px}
