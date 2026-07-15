@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # local source images kept before optimization
 unoptimized-assets/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
