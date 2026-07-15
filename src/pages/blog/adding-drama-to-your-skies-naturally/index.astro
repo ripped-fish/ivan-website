@@ -5,6 +5,7 @@ const assetPath = '/assets/blog/adding-drama-to-your-skies-naturally';
 const title = 'Adding Drama to Your Skies Naturally in Lightroom';
 const description =
   'A dramatic sky can transform a good photo into a breathtaking one, but if done poorly, it can look fake and distract from your subject.';
+const isDev = import.meta.env.DEV;
 ---
 
 <!doctype html>
@@ -29,6 +30,18 @@ const description =
           <a href="/">Home</a>
           <a href="/blog/">Blog</a>
           <a href="/course/">Course</a>
+          {
+            isDev && (
+              <div class="dev-menu">
+                <button type="button" class="dev-menu-toggle">Dev</button>
+                <div class="dev-menu-list" role="menu" aria-label="Development pages">
+                  <a href="/masking-guide/" role="menuitem">Masking Guide</a>
+                  <a href="/newsletter/" role="menuitem">Newsletter</a>
+                  <a href="/links/" role="menuitem">Links</a>
+                </div>
+              </div>
+            )
+          }
         </div>
       </nav>
     </header>
@@ -262,10 +275,11 @@ const description =
             <section class="newsletter" aria-labelledby="newsletter-heading">
               <h3 id="newsletter-heading">Join my Newsletter</h3>
               <p>Get notified whenever I publish new tips, tricks, and techniques on this blog, plus exclusive resources.</p>
-              <form class="newsletter-form" action="https://app.kit.com/forms/8589543/subscriptions" method="post">
+              <form class="newsletter-form" action="https://app.kit.com/forms/8589543/subscriptions" method="post" data-kit-background-form>
                 <input aria-label="First Name" name="fields[first_name]" placeholder="First Name" required type="text" />
                 <input aria-label="Email Address" name="email_address" placeholder="Email Address" required type="email" />
                 <button type="submit">Subscribe</button>
+                <p class="newsletter-form-message" data-form-message aria-live="polite"></p>
               </form>
             </section>
           </article>
@@ -294,5 +308,6 @@ const description =
         <span>Tips, tutorials, and inspiration for landscape photographers</span>
       </div>
     </footer>
+    <script src="../../../scripts/kit-form.js"></script>
   </body>
 </html>

@@ -4,6 +4,7 @@ import '../../styles/global.css';
 const title = 'Free Lightroom Masking Starter Guide - Ivan Chan';
 const description =
   'Get Ivan Chan’s free Lightroom Masking Starter Guide and learn when to use masks, why they matter, and how to get cleaner edits.';
+const isDev = import.meta.env.DEV;
 ---
 
 <!doctype html>
@@ -29,6 +30,18 @@ const description =
           <a href="/">Home</a>
           <a href="/blog/">Blog</a>
           <a href="/course/">Course</a>
+          {
+            isDev && (
+              <div class="dev-menu">
+                <button type="button" class="dev-menu-toggle">Dev</button>
+                <div class="dev-menu-list" role="menu" aria-label="Development pages">
+                  <a href="/masking-guide/" role="menuitem">Masking Guide</a>
+                  <a href="/newsletter/" role="menuitem">Newsletter</a>
+                  <a href="/links/" role="menuitem">Links</a>
+                </div>
+              </div>
+            )
+          }
         </div>
       </div>
     </nav>

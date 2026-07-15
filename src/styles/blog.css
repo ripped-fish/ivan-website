@@ -46,6 +46,31 @@ img {
   z-index: 20;
 }
 
+.home-site-header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: #fff;
+  backdrop-filter: none;
+}
+
+.home-site-header .nav-links a {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.home-site-header .nav-links a:hover {
+  color: #fff;
+  background: rgba(217, 242, 108, 0.16);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.home-site-header .dev-menu-list a,
+.home-site-header .dev-menu-list a:hover {
+  color: var(--blog-ink);
+}
+
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -126,6 +151,62 @@ img {
   transform: scaleX(1);
 }
 
+.dev-menu {
+  position: relative;
+  display: inline-flex;
+}
+
+.dev-menu-toggle {
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid rgba(79, 111, 31, 0.24);
+  border-radius: 999px;
+  background: var(--blog-lime);
+  color: var(--blog-ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+}
+
+.dev-menu-toggle:hover,
+.dev-menu:focus-within .dev-menu-toggle {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(79, 111, 31, 0.16);
+}
+
+.dev-menu-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 30;
+  min-width: 190px;
+  padding: 8px;
+  border: 1px solid var(--blog-line);
+  border-radius: 8px;
+  background: var(--blog-cream);
+  box-shadow: 0 18px 38px rgba(21, 23, 18, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.dev-menu:hover .dev-menu-list,
+.dev-menu:focus-within .dev-menu-list {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dev-menu-list a {
+  width: 100%;
+  justify-content: flex-start;
+  color: var(--blog-ink);
+}
+
 .article-hero {
   padding: 88px 0 48px;
 }
@@ -161,7 +242,7 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(3rem, 7vw, 6.2rem);
+  font-size: clamp(2.75rem, 5.4vw, 4.85rem);
   margin: 0.18em 0 0.22em;
 }
 
@@ -358,6 +439,39 @@ th {
   justify-content: center;
 }
 
+.newsletter-form button:disabled,
+.home-newsletter-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+  box-shadow: none;
+}
+
+.newsletter-form-message {
+  grid-column: 1 / -1;
+  min-height: 1.35em;
+  margin: 2px 0 0;
+  font-size: 0.84rem;
+  font-weight: 850;
+  line-height: 1.45;
+}
+
+.newsletter-form-message:empty {
+  display: none;
+}
+
+.newsletter-form-message[data-state="pending"] {
+  color: var(--blog-muted);
+}
+
+.newsletter-form-message[data-state="success"] {
+  color: #4f6f1f;
+}
+
+.newsletter-form-message[data-state="error"] {
+  color: var(--blog-rust);
+}
+
 .sidebar {
   position: sticky;
   top: 104px;
@@ -469,7 +583,7 @@ th {
 
 .home-hero-copy p {
   color: #fff;
-  font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+  font-size: clamp(0.84rem, 1.15vw, 1.02rem);
   font-weight: 500;
   max-width: 650px;
   margin: 0 auto;
@@ -619,13 +733,13 @@ th {
 }
 
 .client-grid img {
-  max-height: 118px;
-  max-width: 430px;
+  max-height: 86px;
+  max-width: 320px;
 }
 
 .client-grid .adobe-logo {
-  max-height: 76px;
-  max-width: 270px;
+  max-height: 56px;
+  max-width: 210px;
 }
 
 .editorial-gallery {
@@ -658,7 +772,8 @@ th {
 }
 
 .wide-newsletter h2 {
-  font-size: clamp(2rem, 3.4vw, 3.6rem);
+  font-size: clamp(1.55rem, 2.35vw, 2.45rem);
+  line-height: 1.12;
 }
 
 .wide-newsletter p {
@@ -701,6 +816,13 @@ th {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
 }
 
+.home-newsletter-form button:disabled:hover {
+  transform: none;
+  background: #1677be;
+  border-color: #1677be;
+  box-shadow: none;
+}
+
 .blog-list-hero {
   padding: 86px 0 62px;
   background: var(--blog-paper);
@@ -714,7 +836,8 @@ th {
 }
 
 .blog-list-head h1 {
-  max-width: 900px;
+  max-width: 780px;
+  font-size: clamp(2.7rem, 5vw, 4.45rem);
 }
 
 .blog-list-head p {
@@ -758,7 +881,8 @@ th {
 }
 
 .post-card h2 {
-  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-size: clamp(1.9rem, 3vw, 2.85rem);
+  line-height: 1.08;
 }
 
 .post-card h2 a {
@@ -793,7 +917,18 @@ th {
   }
 
   .client-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 18px;
+  }
+
+  .client-grid img {
+    max-width: 150px;
+    max-height: 54px;
+  }
+
+  .client-grid .adobe-logo {
+    max-width: 112px;
+    max-height: 38px;
   }
 
   .editorial-gallery {

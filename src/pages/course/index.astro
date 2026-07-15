@@ -1,5 +1,7 @@
 ---
 import '../../styles/global.css';
+
+const isDev = import.meta.env.DEV;
 ---
 
 <!doctype html>
@@ -23,6 +25,18 @@ import '../../styles/global.css';
           <a href="#framework">The Framework</a>
           <a href="#curriculum">Curriculum</a>
           <a href="#bonuses">Bonuses</a>
+          {
+            isDev && (
+              <div class="dev-menu">
+                <button type="button" class="dev-menu-toggle">Dev</button>
+                <div class="dev-menu-list" role="menu" aria-label="Development pages">
+                  <a href="/masking-guide/" role="menuitem">Masking Guide</a>
+                  <a href="/newsletter/" role="menuitem">Newsletter</a>
+                  <a href="/links/" role="menuitem">Links</a>
+                </div>
+              </div>
+            )
+          }
           <a class="btn btn-dark" href="https://forms.gle/NXVrTfgdjUeVwoFJ7" target="_blank" rel="noopener noreferrer">Apply for free beta access</a>
         </div>
       </div>

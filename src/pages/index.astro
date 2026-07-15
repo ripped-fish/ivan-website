@@ -4,6 +4,7 @@ import '../styles/blog.css';
 const title = 'Ivan Chan Photography';
 const description =
   'Canadian travel and adventure photographer helping you create more visually impactful photos.';
+const isDev = import.meta.env.DEV;
 ---
 
 <!doctype html>
@@ -22,13 +23,25 @@ const description =
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true"></div>
-    <header class="site-header">
+    <header class="site-header home-site-header">
       <nav class="nav" aria-label="Main navigation">
         <a class="brand" href="/">IVAN <span>Chan</span></a>
         <div class="nav-links">
           <a href="/">Home</a>
           <a href="/blog/">Blog</a>
           <a href="/course/">Course</a>
+          {
+            isDev && (
+              <div class="dev-menu">
+                <button type="button" class="dev-menu-toggle">Dev</button>
+                <div class="dev-menu-list" role="menu" aria-label="Development pages">
+                  <a href="/masking-guide/" role="menuitem">Masking Guide</a>
+                  <a href="/newsletter/" role="menuitem">Newsletter</a>
+                  <a href="/links/" role="menuitem">Links</a>
+                </div>
+              </div>
+            )
+          }
         </div>
       </nav>
     </header>
@@ -120,10 +133,11 @@ const description =
             <p>Get notified whenever I publish new tips, tricks, and techniques on this blog + exclusive resources.</p>
             <p>I respect your privacy. Unsubscribe at anytime.</p>
           </div>
-          <form class="home-newsletter-form" action="https://app.kit.com/forms/8589543/subscriptions" method="post">
+          <form class="home-newsletter-form" action="https://app.kit.com/forms/8589543/subscriptions" method="post" data-kit-background-form>
             <input name="fields[first_name]" placeholder="First Name" type="text" aria-label="First Name" required />
             <input name="email_address" placeholder="Email Address" type="email" aria-label="Email Address" required />
             <button type="submit">Subscribe</button>
+            <p class="newsletter-form-message" data-form-message aria-live="polite"></p>
           </form>
         </div>
       </section>
@@ -136,5 +150,6 @@ const description =
       </div>
     </footer>
     <script src="../scripts/landing-page.js"></script>
+    <script src="../scripts/kit-form.js"></script>
   </body>
 </html>

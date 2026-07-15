@@ -1,0 +1,127 @@
+---
+import '../../styles/global.css';
+
+const title = 'Links - Ivan Chan Photography';
+const description =
+  'Find Ivan Chan’s photography, editing resources, YouTube channel, Instagram, blog, and free Lightroom masking guide.';
+const isDev = import.meta.env.DEV;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico?v=2" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://ivanpkchan.com/links/" />
+    <meta property="og:title" content="Ivan Chan Links" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/newsletter/newsletter-background.jpg" />
+  </head>
+  <body class="links-page">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <nav class="masking-nav newsletter-nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="/">IVAN <span>Chan</span></a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/course/">Course</a>
+          {
+            isDev && (
+              <div class="dev-menu">
+                <button type="button" class="dev-menu-toggle">Dev</button>
+                <div class="dev-menu-list" role="menu" aria-label="Development pages">
+                  <a href="/masking-guide/" role="menuitem">Masking Guide</a>
+                  <a href="/newsletter/" role="menuitem">Newsletter</a>
+                  <a href="/links/" role="menuitem">Links</a>
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="links-hero">
+        <div class="links-hero-bg">
+          <img src="/assets/newsletter/newsletter-background.jpg" alt="Mountain landscape at sunset" />
+        </div>
+
+        <div class="wrap links-shell">
+          <section class="links-card links-intro" data-reveal>
+            <img class="links-portrait" src="/assets/newsletter/newsletter-portrait.png" alt="Portrait of Ivan Chan" />
+            <div class="links-intro-copy">
+              <div class="eyebrow">Landscape | Travel | Adventure</div>
+              <h1 class="display">Ivan Chan</h1>
+              <p>
+                Practical editing tips, behind-the-scenes stories, photography resources, and field notes for creating
+                cleaner, more visually impactful images.
+              </p>
+            </div>
+          </section>
+
+          <section class="links-card links-list-card" data-reveal="scale">
+            <div class="links-list-head">
+              <span class="links-head-icon">↗</span>
+              <h2>Links</h2>
+            </div>
+            <div class="links-grid" aria-label="Ivan Chan links" data-stagger>
+              <a href="https://www.instagram.com/ivanpkhc/" target="_blank" rel="noopener noreferrer">
+                <span class="newsletter-link-icon instagram">
+                  <img src="/assets/newsletter/Instagram_icon.png" alt="" />
+                </span>
+                <span>Instagram</span>
+              </a>
+              <a href="https://www.youtube.com/@ivanpkhchan" target="_blank" rel="noopener noreferrer">
+                <span class="newsletter-link-icon youtube">
+                  <img src="/assets/newsletter/YouTube_full-color_icon_(2017).svg.webp" alt="" />
+                </span>
+                <span>YouTube</span>
+              </a>
+              <a href="/masking-guide/">
+                <span class="newsletter-link-icon website">↗</span>
+                <span>
+                  <strong>Free Lightroom Masking Starter Guide</strong>
+                  <small>Get cleaner local adjustments</small>
+                </span>
+              </a>
+              <a href="/blog/">
+                <span class="newsletter-link-icon website">↗</span>
+                <span>Blog</span>
+              </a>
+            </div>
+          </section>
+
+          <section class="links-card links-subscribe-card" data-reveal>
+            <div>
+              <div class="eyebrow">Newsletter</div>
+              <h2>Get practical editing notes in your inbox.</h2>
+            </div>
+            <form
+              class="links-form"
+              method="POST"
+              action="https://app.kit.com/forms/8567589/subscriptions"
+              data-sv-form="8567589"
+              data-uid="f821cf6cf3"
+              data-kit-background-form
+            >
+              <input name="email_address" placeholder="Email Address" type="email" autocomplete="email" required aria-label="Email Address" />
+              <button type="submit">Subscribe</button>
+              <p class="links-form-note">I respect your privacy. Unsubscribe at any time.</p>
+              <p class="links-form-message" data-form-message aria-live="polite"></p>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="../../scripts/landing-page.js"></script>
+    <script src="../../scripts/kit-form.js"></script>
+    <script async src="https://pages.convertkit.com/ckjs/ck.6.js"></script>
+  </body>
+</html>
