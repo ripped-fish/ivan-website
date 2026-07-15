@@ -1,0 +1,198 @@
+---
+import '../../styles/global.css';
+
+const title = 'Portfolio - Ivan Chan';
+const description = 'Selected commercial, outdoor, and adventure photography work by Ivan Chan.';
+const isDev = import.meta.env.DEV;
+
+const sections = [
+  {
+    name: 'Stormtech',
+    logo: 'Stormtech-1024x347.png',
+    images: [
+      'DSC09740-Edit-5-0f12daa3-1000-683x1024.jpg',
+      'DSC099062-5-46f818bf-1000-683x1024.jpg',
+      'DSC09898-Edit-4-3b199119-1000-683x1024.jpg',
+      'DSC00063-4-e7229751-1000-683x1024.jpg',
+      'DSC00050-3-c6a4c552-1000-683x1024.jpg',
+    ],
+  },
+  {
+    name: 'Sawyer',
+    logo: 'sawyer.svg',
+    images: [
+      'DSC00984-1-819x1024.jpg',
+      'DSC01589-1-819x1024.jpg',
+      'DSC01572-Edit-819x1024.jpg',
+      'DSC01526-819x1024.jpg',
+      'DSC00925-Edit-819x1024.jpg',
+      'DSC00877-819x1024.jpg',
+    ],
+  },
+  {
+    name: '8BPlus',
+    logo: '8bplus-logo-0c199b9b-1500-3.png',
+    images: [
+      '8BPlus-3-1-683x1024.jpg',
+      'DSC02891-2-d034b077-1000-683x1024.jpg',
+      '8BPlus-3-683x1024.jpg',
+      'DSC02861-2-22833284-1000-683x1024.jpg',
+      '8BPlus-2-683x1024.jpg',
+      'DSC02737-4-079c100d-1000-683x1024.jpg',
+    ],
+    video: 'https://player.vimeo.com/video/1028544166?dnt=1&app_id=122963',
+  },
+  {
+    name: 'HiBear',
+    logo: 'Hibear_Script_Logo-01_6f50b376-e5fd-4db3-9a7d-5b189d62d0b3-4e0176f6-500.png',
+    logoClass: 'portfolio-logo-hibear',
+    images: [
+      'DJI_0717-a7c45642-1000-819x1024.jpg',
+      'DSC03577-3-5573d4b1-1000-819x1024.jpg',
+      'DSC03582-2-3c85db8c-1000-819x1024.jpg',
+      'DSC03589-2-8cb9d45f-1000-819x1024.jpg',
+      'DSC04050-Edit-2-a1651af0-1000-819x1024.jpg',
+      'DSC04075-2-53d29803-1000-819x1024.jpg',
+    ],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico?v=2" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://ivanpkchan.com/portfolio/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/portfolio/DSC09740-Edit-5-0f12daa3-1000-683x1024.jpg" />
+  </head>
+  <body class="portfolio-page">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <nav class="masking-nav commercial-nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="/">IVAN <span>Chan</span></a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/commercial/">Commercial</a>
+          <a href="/course/">Course</a>
+          {
+            isDev && (
+              <div class="dev-menu">
+                <button type="button" class="dev-menu-toggle">Dev</button>
+                <div class="dev-menu-list" role="menu" aria-label="Development pages">
+                  <a href="/masking-guide/" role="menuitem">Masking Guide</a>
+                  <a href="/newsletter/" role="menuitem">Newsletter</a>
+                  <a href="/links/" role="menuitem">Links</a>
+                  <a href="/commercial/" role="menuitem">Commercial</a>
+                  <a href="/portfolio/" role="menuitem">Portfolio</a>
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <header class="portfolio-hero">
+        <div class="wrap" data-reveal>
+          <div class="eyebrow">Selected Work</div>
+          <h1 class="display">Portfolio</h1>
+          <p>Commercial, outdoor, and adventure imagery created for brands in the field.</p>
+        </div>
+      </header>
+
+      {sections.map((section) => (
+        <section class="portfolio-section">
+          <div class="wrap">
+            <div class="portfolio-brand-head" data-reveal>
+              <img
+                class={section.logoClass || ''}
+                src={section.logoPath || `/assets/portfolio/${section.logo}`}
+                alt={`${section.name} logo`}
+              />
+              <h2>{section.name}</h2>
+            </div>
+            <div class="portfolio-grid" data-stagger>
+              {
+                section.images.map((image) => (
+                  <button
+                    type="button"
+                    class="portfolio-image-button"
+                    data-portfolio-image={`/assets/portfolio/${image}`}
+                    data-portfolio-alt={`${section.name} commercial photography by Ivan Chan`}
+                    aria-label={`Open larger view of ${section.name} image`}
+                  >
+                    <img src={`/assets/portfolio/${image}`} alt={`${section.name} commercial photography by Ivan Chan`} />
+                  </button>
+                ))
+              }
+            </div>
+            {section.video && (
+              <div class="portfolio-video" data-reveal>
+                <iframe
+                  src={section.video}
+                  title={`${section.name} campaign video`}
+                  loading="lazy"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  allowfullscreen
+                />
+              </div>
+            )}
+          </div>
+        </section>
+      ))}
+    </main>
+
+    <div class="portfolio-lightbox" data-portfolio-lightbox hidden>
+      <button type="button" class="portfolio-lightbox-close" data-portfolio-close aria-label="Close image">×</button>
+      <img src="" alt="" data-portfolio-lightbox-image />
+    </div>
+
+    <script src="../../scripts/landing-page.js"></script>
+    <script is:inline>
+      (() => {
+        const lightbox = document.querySelector('[data-portfolio-lightbox]');
+        const lightboxImage = document.querySelector('[data-portfolio-lightbox-image]');
+        const imageButtons = document.querySelectorAll('[data-portfolio-image]');
+        const closeButton = document.querySelector('[data-portfolio-close]');
+
+        if (!lightbox || !lightboxImage || !closeButton) return;
+
+        const closeLightbox = () => {
+          lightbox.hidden = true;
+          document.body.classList.remove('portfolio-lightbox-open');
+          lightboxImage.removeAttribute('src');
+          lightboxImage.alt = '';
+        };
+
+        imageButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            lightboxImage.src = button.getAttribute('data-portfolio-image') || '';
+            lightboxImage.alt = button.getAttribute('data-portfolio-alt') || '';
+            lightbox.hidden = false;
+            document.body.classList.add('portfolio-lightbox-open');
+            closeButton.focus();
+          });
+        });
+
+        lightbox.addEventListener('click', closeLightbox);
+        closeButton.addEventListener('click', closeLightbox);
+        lightboxImage.addEventListener('click', (event) => event.stopPropagation());
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && !lightbox.hidden) {
+            closeLightbox();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+---
+import '../../styles/global.css';
+
+const title = 'Commercial Photography - Ivan Chan';
+const description =
+  'Outdoor and adventure commercial photography campaigns for brands that need content built to capture attention and drive sales.';
+const isDev = import.meta.env.DEV;
+
+const gallery = [
+  'ivanpkhc_390768711_1391327778453320_49416044117332437_n-819x1024.jpg',
+  'DSC02594-819x1024.jpg',
+  'DSC06355-683x1024.jpg',
+  'DJI_0398-819x1024.jpg',
+  'DSC05161-Edit-819x1024.jpg',
+  'DSC06331-Edit-2-819x1024.jpg',
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico?v=2" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://ivanpkchan.com/commercial/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/commercial/Hong-Kong.jpg" />
+  </head>
+  <body class="commercial-page">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <nav class="masking-nav commercial-nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="/">IVAN <span>Chan</span></a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/commercial/">Commercial</a>
+          <a href="/course/">Course</a>
+          {
+            isDev && (
+              <div class="dev-menu">
+                <button type="button" class="dev-menu-toggle">Dev</button>
+                <div class="dev-menu-list" role="menu" aria-label="Development pages">
+                  <a href="/masking-guide/" role="menuitem">Masking Guide</a>
+                  <a href="/newsletter/" role="menuitem">Newsletter</a>
+                  <a href="/links/" role="menuitem">Links</a>
+                  <a href="/commercial/" role="menuitem">Commercial</a>
+                  <a href="/portfolio/" role="menuitem">Portfolio</a>
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <header class="commercial-hero">
+        <div class="commercial-hero-media">
+          <img src="/assets/commercial/Hong-Kong.jpg" alt="Climber above Hong Kong at night photographed by Ivan Chan" />
+        </div>
+        <div class="wrap commercial-hero-copy" data-reveal>
+          <div class="eyebrow">Outdoor &amp; Adventure Photography</div>
+          <h1 class="display">Elevate your brand with content that <span class="commercial-highlight">actually sells.</span></h1>
+          <p>
+            Strategic photo and video campaigns for outdoor brands that need attention, trust, and imagery that turns
+            interest into action.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="https://calendly.com/ivanpkhchan/15min" target="_blank" rel="noopener noreferrer">Book a Discovery Call</a>
+            <a class="btn btn-light" href="/portfolio/">View Portfolio</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="commercial-logo-band">
+        <div class="wrap commercial-logo-grid" data-stagger>
+          <img src="/assets/home/brand-hero.png" alt="Tamron" />
+          <img src="/assets/home/client-1.png" alt="Brand client logo" />
+          <img src="/assets/home/client-sawyer.png" alt="Sawyer" />
+          <img src="/assets/home/client-gsi.png" alt="GSI Outdoors" />
+          <img src="/assets/home/client-stormtech.png" alt="Stormtech" />
+          <img class="adobe-logo" src="/assets/home/adobe-logo.svg" alt="Adobe" />
+        </div>
+      </section>
+
+      <section class="commercial-testimonials section">
+        <div class="wrap commercial-testimonial-grid">
+          <blockquote data-reveal>
+            <p>
+              “The deliverables he provided in our collaboration are stunning. The colors and composition are so vibrant,
+              and he really captured the moments beautifully.”
+            </p>
+            <cite>Christine Revilla, Marketing Manager - HiBear</cite>
+          </blockquote>
+          <blockquote data-reveal>
+            <p>
+              “Working with Ivan was awesome. He was professional, flexible, and easy to work with. We were especially
+              impressed with the trendy video editing.”
+            </p>
+            <cite>Danny Vogelman, Marketing Manager - GSI Outdoors</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="commercial-strategy section">
+        <div class="wrap commercial-split">
+          <div data-reveal>
+            <div class="eyebrow">The Challenge</div>
+            <h2 class="display">Is your content generating as much <span class="commercial-highlight">attention and sales</span> as it could?</h2>
+          </div>
+          <div class="commercial-copy" data-reveal>
+            <p>
+              Your products are too awesome to leave money on the table because of subpar content. In today's age of
+              <strong>brand marketing</strong>, the landscape of <strong>platforms and trends</strong> are shifting so
+              rapidly that it's hard to keep up with what works and what doesn't. It's a confusing world out there. You
+              deserve to have <strong>strategic and consistent content</strong> that will help you
+              <strong>grow your brand.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="commercial-about section">
+        <div class="wrap commercial-about-grid">
+          <figure>
+            <img src="/assets/commercial/ivanpkhc_1731183432_3497742603842873223_44554261161-819x1024.jpg" alt="Ivan Chan photographing outdoors" />
+          </figure>
+          <div data-reveal>
+            <div class="eyebrow">Hey, I'm Ivan</div>
+            <h2 class="display">I tell outdoor brand stories through <span class="commercial-highlight">authentic adventures.</span></h2>
+            <p>
+              I specialize in telling the stories of <strong>outdoor brands</strong> through
+              <strong>authentic adventures</strong>. I love helping brands grow and get the recognition they deserve
+              through <strong>compelling imagery</strong> that not only helps you <strong>make more sales</strong>, but
+              also <strong>builds your brand image</strong> and <strong>brand trust</strong>, forming long term
+              relationships with your customers that will come back to you time and time again.
+            </p>
+            <a class="btn btn-dark" href="https://calendly.com/ivanpkhchan/15min" target="_blank" rel="noopener noreferrer">Let's Chat</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="commercial-gallery section">
+        <div class="wrap">
+          <div class="commercial-section-head">
+            <div class="eyebrow">Selected Work</div>
+            <h2 class="display">Content built for <span class="commercial-highlight">the trail, the feed, and the brand.</span></h2>
+          </div>
+          <div class="commercial-image-grid" data-stagger>
+            {gallery.map((image) => <img src={`/assets/commercial/${image}`} alt="Commercial outdoor photography by Ivan Chan" />)}
+          </div>
+        </div>
+      </section>
+
+      <section class="commercial-process section">
+        <div class="wrap">
+          <div class="commercial-process-head" data-reveal>
+            <div class="eyebrow">Process</div>
+            <h2 class="display">The next steps are <span class="commercial-highlight">simple.</span></h2>
+          </div>
+          <ol class="commercial-steps" data-stagger>
+            <li>
+              <strong>Book a Discovery Call</strong>
+              <span>Let's hop on a free, no-pressure call to chat about what your dream outcomes for your brand are and how I can help you with that.</span>
+            </li>
+            <li>
+              <strong>Campaign Design</strong>
+              <span>Every brand is different, so we'll set up a call to design a tailored content campaign to drive sales and growth while staying true to your brand image.</span>
+            </li>
+            <li>
+              <strong>Content Delivery</strong>
+              <span>I take everything from there and create some engaging content for you, delivered right to your inbox and ready to help your brand grow.</span>
+            </li>
+          </ol>
+          <div class="commercial-process-actions" data-reveal>
+            <a class="btn btn-dark" href="https://calendly.com/ivanpkhchan/15min" target="_blank" rel="noopener noreferrer">Book a Discovery Call</a>
+            <a class="btn btn-light" href="/portfolio/">View Portfolio</a>
+            <a class="btn btn-light" href="mailto:hello@ivanpkchan.com">Email</a>
+          </div>
+          <div class="commercial-social-links" aria-label="Social links" data-reveal>
+            <a href="https://www.instagram.com/ivanpkhc/" target="_blank" rel="noopener noreferrer">
+              <img src="/assets/newsletter/Instagram_icon.png" alt="" />
+              <span>Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/@ivanpkhchan" target="_blank" rel="noopener noreferrer">
+              <img src="/assets/newsletter/YouTube_full-color_icon_(2017).svg.webp" alt="" />
+              <span>YouTube</span>
+            </a>
+          </div>
+          <div class="commercial-contact-details" data-reveal>
+            <span>Contact</span>
+            <a href="mailto:hello@ivanpkchan.com">hello@ivanpkchan.com</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../../scripts/landing-page.js"></script>
+  </body>
+</html>
