@@ -239,6 +239,47 @@ footer{background:var(--ink);color:white;padding:35px 0}
 .masking-form-message[data-state="pending"]{color:rgba(255,255,255,.7)}
 .masking-form-message[data-state="success"]{color:var(--lime)}
 .masking-form-message[data-state="error"]{color:#ffb199}
+
+.newsletter-page{min-height:100vh;background:var(--ink);color:white}
+.newsletter-nav{color:white}
+.newsletter-hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#0b110c;padding:120px 0 76px}
+.newsletter-hero-bg{position:absolute;inset:0}
+.newsletter-hero-bg img{height:100%;filter:saturate(.92) contrast(1.04);object-position:center 47%}
+.newsletter-hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,10,.82),rgba(10,12,10,.48) 44%,rgba(10,12,10,.72)),linear-gradient(0deg,rgba(10,12,10,.65),rgba(10,12,10,.24) 44%,rgba(10,12,10,.7))}
+.newsletter-shell{position:relative;z-index:1;display:grid;grid-template-columns:minmax(360px,620px);justify-content:center;gap:34px}
+.newsletter-panel{max-width:620px}
+.newsletter-head{display:grid;gap:22px;align-items:start}
+.newsletter-head > div{grid-column:auto;grid-row:auto}
+.newsletter-head img{grid-column:auto;grid-row:auto;width:118px;height:118px;border-radius:50%;object-fit:cover;align-self:start;margin-top:0;box-shadow:0 20px 50px rgba(0,0,0,.28)}
+.newsletter-head .eyebrow{color:var(--lime);margin-top:0}
+.newsletter-head h1{font-size:clamp(3rem,4.45vw,4.85rem);line-height:1;margin:.12em 0 0}
+.newsletter-head .marker{display:inline;color:white;background:linear-gradient(transparent 58%,rgba(217,242,108,.68) 58%);padding:0 .06em .09em;text-shadow:0 2px 18px rgba(0,0,0,.36);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.newsletter-copy{margin:30px 0 28px;max-width:600px;color:rgba(255,255,255,.76);font-size:clamp(1.06rem,1.4vw,1.24rem);line-height:1.62}
+.newsletter-copy p{margin:0}
+.newsletter-copy p + p{margin-top:18px}
+.newsletter-form{display:grid;gap:12px;max-width:600px}
+.newsletter-form label{display:grid;gap:7px}
+.newsletter-form label span{font-size:.74rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.58)}
+.newsletter-form input{width:100%;border:1px solid rgba(255,255,255,.16);background:rgba(17,19,16,.82);color:white;border-radius:0;padding:17px 18px;font:inherit;box-shadow:0 14px 32px rgba(0,0,0,.16)}
+.newsletter-form input::placeholder{color:rgba(255,255,255,.42)}
+.newsletter-form button{justify-self:start;margin-top:8px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:var(--ink);color:white;font:inherit;font-weight:900;letter-spacing:.04em;padding:16px 26px;cursor:pointer;transition:transform .25s var(--ease-out),background .25s ease,box-shadow .25s ease}
+.newsletter-form button:hover{background:#2b3027;transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.24)}
+.newsletter-form button:disabled{cursor:wait;opacity:.72;transform:none}
+.newsletter-form p{margin:3px 0 0;font-size:.8rem;color:rgba(255,255,255,.52)}
+.newsletter-form-message{min-height:1.4em;font-weight:850}
+.newsletter-form-message:empty{display:none}
+.newsletter-form-message[data-state="pending"]{color:rgba(255,255,255,.7)}
+.newsletter-form-message[data-state="success"]{color:var(--lime)}
+.newsletter-form-message[data-state="error"]{color:#ffb199}
+.newsletter-links{display:flex;flex-wrap:nowrap;gap:10px;max-width:none}
+.newsletter-links a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 14px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(17,19,16,.76);color:rgba(255,255,255,.72);text-decoration:none;font-size:.88rem;font-weight:850;letter-spacing:.03em;transition:transform .28s var(--ease-out),background .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease}
+.newsletter-links a:hover{transform:translateY(-2px);background:rgba(217,242,108,.14);border-color:rgba(217,242,108,.52);color:white;box-shadow:0 12px 28px rgba(0,0,0,.22)}
+.newsletter-link-icon{width:20px;height:20px;display:grid;place-items:center;font-size:.92rem;font-weight:950;color:white;line-height:1}
+.newsletter-link-icon img{width:18px;height:18px;object-fit:contain}
+.newsletter-link-icon.instagram{color:#ff4bd3}
+.newsletter-link-icon.youtube{color:#ff2b25}
+.newsletter-link-icon.website{color:var(--lime);font-size:1.15rem}
+.newsletter-link-icon.work{color:#78d7a4;font-size:1.15rem}
 @media(max-width:1300px){
  .about-ivan-grid{grid-template-columns:1fr;gap:30px}
  .about-ivan-grid > .about-ivan-photo{display:none}
@@ -254,6 +295,7 @@ footer{background:var(--ink);color:white;padding:35px 0}
  .masking-hero-inner{gap:44px}
  .masking-guide-preview{justify-content:flex-start}
  .masking-cover-image{width:min(76vw,340px)}
+ .newsletter-shell{justify-content:start}
  .masking-learn-list{grid-template-columns:1fr}
  .intro-grid,.community-grid,.price-card{grid-template-columns:1fr}
  .problem-cards{grid-template-columns:1fr}
@@ -278,6 +320,9 @@ footer{background:var(--ink);color:white;padding:35px 0}
  .scroll-edit-frame{width:min(78vw,600px,calc(62vh * .8));margin:0 auto}
  .bonus-grid{grid-template-columns:1fr}
 }
+@media(max-width:720px){
+ .newsletter-links{flex-wrap:wrap}
+}
 @media(max-width:580px){
  .wrap{width:min(100% - 24px,var(--max))}
  .masking-hero{min-height:auto}
@@ -290,6 +335,14 @@ footer{background:var(--ink);color:white;padding:35px 0}
  .masking-form-section{padding:78px 0}
  .masking-form-card{padding:26px;gap:30px}
  .masking-form{padding:22px}
+ .newsletter-hero{align-items:flex-start;padding:112px 0 56px}
+ .newsletter-head{grid-template-columns:1fr;gap:18px;align-items:start}
+ .newsletter-head > div{grid-column:auto;grid-row:auto}
+ .newsletter-head img{grid-column:auto;grid-row:auto;width:96px;height:96px;margin-top:0;align-self:start}
+ .newsletter-head h1{font-size:clamp(2.45rem,10.8vw,3.45rem)}
+ .newsletter-copy{font-size:1rem}
+ .newsletter-links{gap:10px}
+ .newsletter-links a{min-height:38px;padding:8px 14px}
  .hero{min-height:760px}.hero-content{padding-bottom:50px}
  .hero h1{font-size:3.7rem}
  .section{padding:78px 0}

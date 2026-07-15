@@ -1,0 +1,161 @@
+---
+import '../../styles/global.css';
+
+const title = 'Newsletter - Ivan Chan Photography';
+const description =
+  'Subscribe to Ivan Chan’s newsletter for practical editing tips, inspiring shoot locations, behind-the-scenes stories, and resources for better photography.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico?v=2" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://ivanpkchan.com/newsletter/" />
+    <meta property="og:title" content="Subscribe to Ivan Chan’s newsletter" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/newsletter/newsletter-background.jpg" />
+  </head>
+  <body class="newsletter-page">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <nav class="masking-nav newsletter-nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="/">IVAN <span>Chan</span></a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/course/">Course</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="newsletter-hero">
+        <div class="newsletter-hero-bg">
+          <img src="/assets/newsletter/newsletter-background.jpg" alt="Mountain landscape at sunset" />
+        </div>
+        <div class="wrap newsletter-shell">
+          <div class="newsletter-panel" data-reveal>
+            <div class="newsletter-head">
+              <img src="/assets/newsletter/newsletter-portrait.png" alt="Portrait of Ivan Chan" />
+              <div>
+                <div class="eyebrow">Photography | Editing | Stories</div>
+                <h1 class="display">Subscribe to my <span class="marker">newsletter.</span></h1>
+              </div>
+            </div>
+
+            <div class="newsletter-copy">
+              <p>Want to take your photos from ‘pretty good’ to jaw-dropping?</p>
+              <p>
+                Join my newsletter to receive practical editing tips &amp; tricks, inspiring shoot locations,
+                behind-the-scenes stories, and resources to help you create the images you’ve always dreamed of. Join me
+                and start levelling up your photography &amp; editing today.
+              </p>
+            </div>
+
+            <form
+              class="newsletter-form"
+              method="POST"
+              action="https://app.kit.com/forms/8567589/subscriptions"
+              data-sv-form="8567589"
+              data-uid="f821cf6cf3"
+              data-kit-background-form
+            >
+              <label>
+                <span>First Name</span>
+                <input name="fields[first_name]" placeholder="First Name" type="text" autocomplete="given-name" required />
+              </label>
+              <label>
+                <span>Email Address</span>
+                <input name="email_address" placeholder="Email Address" type="email" autocomplete="email" required />
+              </label>
+              <button type="submit">Subscribe</button>
+              <p class="newsletter-form-note">I respect your privacy. Unsubscribe at any time.</p>
+              <p class="newsletter-form-message" data-form-message aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="newsletter-links" aria-label="Ivan Chan links" data-stagger>
+            <a href="https://www.instagram.com/ivanpkhc/" target="_blank" rel="noopener noreferrer">
+              <span class="newsletter-link-icon instagram">
+                <img src="/assets/newsletter/Instagram_icon.png" alt="" />
+              </span>
+              Instagram
+            </a>
+            <a href="https://www.youtube.com/@ivanpkhchan" target="_blank" rel="noopener noreferrer">
+              <span class="newsletter-link-icon youtube">
+                <img src="/assets/newsletter/YouTube_full-color_icon_(2017).svg.webp" alt="" />
+              </span>
+              YouTube
+            </a>
+            <a href="/" target="_blank" rel="noopener noreferrer">
+              <span class="newsletter-link-icon website">↗</span>
+              Website
+            </a>
+            <a href="mailto:ivanpkchan@gmail.com">
+              <span class="newsletter-link-icon work">↗</span>
+              Work with me
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../../scripts/landing-page.js"></script>
+    <script is:inline>
+      (() => {
+        const forms = document.querySelectorAll('[data-kit-background-form]');
+        forms.forEach((form) => {
+          const button = form.querySelector('button[type="submit"]');
+          const message = form.querySelector('[data-form-message]');
+          const defaultButtonText = button?.textContent || 'Subscribe';
+
+          const setMessage = (type, text) => {
+            if (!message) return;
+            message.textContent = text;
+            message.dataset.state = type;
+          };
+
+          form.addEventListener('submit', async (event) => {
+            if (!form.checkValidity()) return;
+            event.preventDefault();
+
+            const controller = new AbortController();
+            const timeoutId = window.setTimeout(() => controller.abort(), 12000);
+
+            setMessage('pending', 'Sending...');
+            if (button) {
+              button.disabled = true;
+              button.textContent = 'Sending...';
+            }
+
+            try {
+              await fetch(form.action, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: new URLSearchParams(new FormData(form)),
+                signal: controller.signal,
+              });
+
+              setMessage('success', 'thank you for subscribing! check your email to confirm your subscription');
+              form.reset();
+            } catch {
+              setMessage('error', 'Something went wrong. Please try again in a moment.');
+            } finally {
+              window.clearTimeout(timeoutId);
+              if (button) {
+                button.disabled = false;
+                button.textContent = defaultButtonText;
+              }
+            }
+          });
+        });
+      })();
+    </script>
+    <script async src="https://pages.convertkit.com/ckjs/ck.6.js"></script>
+  </body>
+</html>
