@@ -25,10 +25,12 @@ nav{position:absolute;z-index:4;top:0;left:0;right:0;color:white;padding:24px 0}
 .hero-bg{position:absolute;inset:0}
 .hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,9,.82) 0%,rgba(8,12,9,.34) 55%,rgba(8,12,9,.05) 100%),linear-gradient(0deg,rgba(8,10,8,.6),transparent 45%)}
 .hero-content{position:relative;z-index:2;padding:165px 0 80px;max-width:820px}
+.launch-status{display:inline-flex;align-items:center;gap:8px;margin-top:14px;border:1px solid rgba(217,242,108,.5);border-radius:999px;background:rgba(17,19,16,.54);padding:8px 13px;color:var(--lime);font-size:.8rem;font-weight:850;letter-spacing:.04em}
 .hero h1{font-size:clamp(4rem,8.6vw,8.4rem);margin:.16em 0 .25em}
 .hero h1 em{font-weight:400;color:var(--lime)}
 .hero p{font-size:clamp(1.08rem,1.5vw,1.35rem);max-width:660px;color:rgba(255,255,255,.86)}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero .hero-waitlist-note{max-width:650px;margin:18px 0 0;color:rgba(255,255,255,.7);font-size:.92rem;line-height:1.55}
 .hero .btn-light{border-color:rgba(255,255,255,.8)}
 .hero .btn-light:hover{background:white;color:#111}
 .proof-strip{background:var(--lime);border-bottom:1px solid var(--ink);padding:16px 0;font-weight:850;text-transform:uppercase;letter-spacing:.06em;font-size:.76rem}
@@ -123,6 +125,10 @@ nav{position:absolute;z-index:4;top:0;left:0;right:0;color:white;padding:24px 0}
 .exercise-card-back{z-index:1;left:22%;top:28px;transform:translate(72px,54px) rotate(7deg)}
 .exercise-card-front{z-index:2;left:8%;top:76px;width:min(28vw,320px);transform:translate(-82px,70px) rotate(-8deg)}
 .exercise-feature.is-visible{opacity:1;transform:none}
+.midpage-waitlist{display:flex;align-items:center;justify-content:space-between;gap:36px;margin-top:72px;border:1px solid var(--ink);border-radius:24px;background:var(--lime);padding:30px 34px}
+.midpage-waitlist h3{margin:5px 0 4px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.7rem,3vw,2.7rem);font-weight:500;letter-spacing:-.035em;line-height:1.05}
+.midpage-waitlist p{margin:0;max-width:720px;color:#31352d}
+.midpage-waitlist .btn{flex:0 0 auto}
 .exercise-feature.is-visible .exercise-card-back{animation:exerciseBackIn 1s var(--ease-out) .12s forwards}
 .exercise-feature.is-visible .exercise-card-front{animation:exerciseFrontIn 1s var(--ease-out) .28s forwards}
 .exercise-stack:hover .exercise-card{filter:saturate(1.04) contrast(1.02)}
@@ -165,6 +171,21 @@ nav{position:absolute;z-index:4;top:0;left:0;right:0;color:white;padding:24px 0}
 .price-card{display:grid;grid-template-columns:1fr .8fr;border:1px solid var(--ink);border-radius:30px;overflow:hidden;box-shadow:var(--shadow)}
 .price-copy{padding:55px}.price-copy h2{font-size:clamp(3.2rem,5vw,5.7rem);margin:0}
 .price-box{background:var(--ink);color:white;padding:55px;display:flex;flex-direction:column;justify-content:center}
+.price-copy>p{max-width:720px;font-size:1.08rem;color:var(--muted)}
+.waitlist-benefits{display:grid;gap:14px;margin-top:32px}
+.waitlist-benefits article{display:grid;grid-template-columns:54px 1fr;gap:16px;border-top:1px solid var(--line);padding-top:18px}
+.waitlist-benefits article>span{width:54px;height:54px;border:1px solid var(--ink);border-radius:50%;background:var(--lime);display:grid;place-items:center;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700}
+.waitlist-benefits h3{margin:2px 0 4px;font-size:1.05rem}
+.waitlist-benefits p{margin:0;color:var(--muted);font-size:.93rem}
+.price-box>h3{margin:12px 0 24px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;letter-spacing:-.03em;line-height:1.08}
+.waitlist-newsletter-note{margin:0 0 18px;border-left:3px solid var(--rust);padding-left:15px;color:rgba(255,255,255,.72);font-size:.9rem}
+.kit-waitlist-embed{min-height:180px}
+.kit-waitlist-embed .formkit-powered-by-convertkit-container{display:none!important}
+.kit-waitlist-embed .formkit-form{margin:0!important;max-width:none!important}
+.kit-waitlist-embed .formkit-submit{border-color:var(--rust)!important;background:var(--rust)!important;color:#fff!important}
+.kit-waitlist-embed .formkit-submit:hover{background:#cf7454!important}
+.kit-waitlist-embed input[type="checkbox"]{accent-color:var(--rust)}
+.price-box>.small{margin:18px 0 0;text-align:center}
 .price-amount{font-family:Georgia,serif;font-size:5rem;line-height:1;margin:15px 0}
 .small{font-size:.86rem;color:var(--muted)}
 .price-box .small{color:rgba(255,255,255,.6)}
@@ -319,6 +340,7 @@ footer{background:var(--ink);color:white;padding:35px 0}
  .scroll-edit-title{font-size:clamp(2.7rem,8vw,5.4rem)}
  .scroll-edit-frame{width:min(78vw,600px,calc(62vh * .8));margin:0 auto}
  .bonus-grid{grid-template-columns:1fr}
+ .midpage-waitlist{align-items:flex-start;flex-direction:column}
 }
 @media(max-width:720px){
  .newsletter-links{flex-wrap:wrap}
@@ -345,6 +367,8 @@ footer{background:var(--ink);color:white;padding:35px 0}
  .newsletter-links a{min-height:38px;padding:8px 14px}
  .hero{min-height:760px}.hero-content{padding-bottom:50px}
  .hero h1{font-size:3.7rem}
+ .launch-status{align-items:flex-start;flex-direction:column;gap:0;border-radius:14px}
+ .launch-status span{display:none}
  .section{padding:78px 0}
  .chess-section{padding-top:96px;padding-bottom:108px}
  #chess-king-canvas{left:-210px;top:18px;width:360px;height:calc(100% - 72px);min-height:560px;opacity:.24}
@@ -357,6 +381,11 @@ footer{background:var(--ink);color:white;padding:35px 0}
  .about-ivan-copy h2{font-size:clamp(2.45rem,12vw,4rem);margin:0}
  .about-ivan-copy p{font-size:1rem}
  .bonus-card{grid-template-columns:1fr}
+ .midpage-waitlist{padding:24px;margin-top:50px}
+ .midpage-waitlist .btn{width:100%}
+ .price-copy,.price-box{padding:32px 24px}
+ .waitlist-benefits article{grid-template-columns:46px 1fr;gap:12px}
+ .waitlist-benefits article>span{width:46px;height:46px}
  .module{grid-template-columns:1fr}.module p{grid-column:auto}
  .masterclass-head{min-height:310px;padding-top:92px;margin-bottom:28px}
  .masterclass-pages{top:-6px;width:min(116vw,540px);opacity:.46}
