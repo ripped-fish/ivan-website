@@ -67,7 +67,7 @@ const isDev = import.meta.env.DEV;
               <span>In this free no-frills guide, I share how to get started with masks in Lightroom.</span>
             </p>
             <div class="masking-actions">
-              <a class="btn btn-dark" href="#get-guide">Get the free guide</a>
+              <a class="btn btn-dark" href="#get-guide" data-analytics-content="masking_guide_hero_cta">Get the free guide</a>
               <span>PDF guide for Lightroom editors</span>
             </div>
           </div>
@@ -125,6 +125,7 @@ const isDev = import.meta.env.DEV;
             class="masking-form formkit-form"
             method="POST"
             action="https://app.kit.com/forms/8639788/subscriptions"
+            data-analytics-content="masking_guide_form"
             data-sv-form="8639788"
             data-uid="811b5950f3"
             data-kit-background-form
@@ -204,5 +205,6 @@ const isDev = import.meta.env.DEV;
       })();
     </script>
     <script async src="https://pages.convertkit.com/ckjs/ck.6.js"></script>
+    <script src="/funnel-analytics.js" is:inline></script>
   </body>
 </html>

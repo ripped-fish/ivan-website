@@ -105,7 +105,7 @@ const isDev = import.meta.env.DEV;
             <h2>Get notified whenever I publish new tips, tricks, and techniques on this blog + exclusive resources.</h2>
             <p>I respect your privacy. Unsubscribe at anytime.</p>
           </div>
-          <form class="home-newsletter-form" action="https://app.kit.com/forms/8589543/subscriptions" method="post" data-kit-background-form>
+          <form class="home-newsletter-form" action="https://app.kit.com/forms/8589543/subscriptions" method="post" data-kit-background-form data-analytics-content="blog_index_newsletter_form">
             <input name="fields[first_name]" placeholder="First Name" type="text" aria-label="First Name" required />
             <input name="email_address" placeholder="Email Address" type="email" aria-label="Email Address" required />
             <button type="submit">Subscribe</button>
@@ -122,5 +122,6 @@ const isDev = import.meta.env.DEV;
       </div>
     </footer>
     <script src="../../scripts/kit-form.js"></script>
+    <script src="/funnel-analytics.js" is:inline></script>
   </body>
 </html>
