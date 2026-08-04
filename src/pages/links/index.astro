@@ -74,35 +74,35 @@ const isDev = import.meta.env.DEV;
               <h2>Links</h2>
             </div>
             <div class="links-grid" aria-label="Ivan Chan links" data-stagger>
-              <a href="https://ivanpkchan.com/commercial">
+              <a href="https://ivanpkchan.com/commercial" data-analytics-content="links_work_with_me">
                 <span class="newsletter-link-icon website">↗</span>
                 <span>
                   <strong>Work with Me</strong>
                   <small>partnerships@ivanpkchan.com</small>
                 </span>
               </a>
-              <a href="mailto:hello@ivanpkchan.com">
+              <a href="mailto:hello@ivanpkchan.com" data-analytics-content="links_email">
                 <span class="newsletter-link-icon website">↗</span>
                 <span>Shoot Me an Email</span>
               </a>
-              <a href="/masking-guide/">
+              <a href="/masking-guide/" data-analytics-content="links_masking_guide">
                 <span class="newsletter-link-icon website">↗</span>
                 <span>
                   <strong>Free Lightroom Masking Starter Guide</strong>
                   <small>Get cleaner local adjustments</small>
                 </span>
               </a>
-              <a href="/blog/">
+              <a href="/blog/" data-analytics-content="links_blog">
                 <span class="newsletter-link-icon website">↗</span>
                 <span>Blog</span>
               </a>
-              <a href="https://www.instagram.com/ivanpkhc/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/ivanpkhc/" target="_blank" rel="noopener noreferrer" data-analytics-content="links_instagram">
                 <span class="newsletter-link-icon instagram">
                   <img src="/assets/newsletter/Instagram_icon.png" alt="" />
                 </span>
                 <span>Instagram</span>
               </a>
-              <a href="https://www.youtube.com/@ivanpkhchan" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/@ivanpkhchan" target="_blank" rel="noopener noreferrer" data-analytics-content="links_youtube">
                 <span class="newsletter-link-icon youtube">
                   <img src="/assets/newsletter/YouTube_full-color_icon_(2017).svg.webp" alt="" />
                 </span>
@@ -123,6 +123,7 @@ const isDev = import.meta.env.DEV;
               data-sv-form="8567589"
               data-uid="f821cf6cf3"
               data-kit-background-form
+              data-analytics-content="links_newsletter_form"
             >
               <input name="email_address" placeholder="Email Address" type="email" autocomplete="email" required aria-label="Email Address" />
               <button type="submit">Subscribe</button>
@@ -137,5 +138,6 @@ const isDev = import.meta.env.DEV;
     <script src="../../scripts/landing-page.js"></script>
     <script src="../../scripts/kit-form.js"></script>
     <script async src="https://pages.convertkit.com/ckjs/ck.6.js"></script>
+    <script src="/funnel-analytics.js" is:inline></script>
   </body>
 </html>

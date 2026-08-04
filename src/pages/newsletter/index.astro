@@ -77,6 +77,7 @@ const isDev = import.meta.env.DEV;
               class="newsletter-form"
               method="POST"
               action="https://app.kit.com/forms/8567589/subscriptions"
+              data-analytics-content="newsletter_page_form"
               data-sv-form="8567589"
               data-uid="f821cf6cf3"
               data-kit-background-form
@@ -96,23 +97,23 @@ const isDev = import.meta.env.DEV;
           </div>
 
           <div class="newsletter-links" aria-label="Ivan Chan links" data-stagger>
-            <a href="https://www.instagram.com/ivanpkhc/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/ivanpkhc/" target="_blank" rel="noopener noreferrer" data-analytics-content="newsletter_instagram">
               <span class="newsletter-link-icon instagram">
                 <img src="/assets/newsletter/Instagram_icon.png" alt="" />
               </span>
               Instagram
             </a>
-            <a href="https://www.youtube.com/@ivanpkhchan" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.youtube.com/@ivanpkhchan" target="_blank" rel="noopener noreferrer" data-analytics-content="newsletter_youtube">
               <span class="newsletter-link-icon youtube">
                 <img src="/assets/newsletter/YouTube_full-color_icon_(2017).svg.webp" alt="" />
               </span>
               YouTube
             </a>
-            <a href="/" target="_blank" rel="noopener noreferrer">
+            <a href="/" target="_blank" rel="noopener noreferrer" data-analytics-content="newsletter_website">
               <span class="newsletter-link-icon website">↗</span>
               Website
             </a>
-            <a href="mailto:ivanpkchan@gmail.com">
+            <a href="mailto:ivanpkchan@gmail.com" data-analytics-content="newsletter_email">
               <span class="newsletter-link-icon work">↗</span>
               Work with me
             </a>
@@ -173,5 +174,6 @@ const isDev = import.meta.env.DEV;
       })();
     </script>
     <script async src="https://pages.convertkit.com/ckjs/ck.6.js"></script>
+    <script src="/funnel-analytics.js" is:inline></script>
   </body>
 </html>

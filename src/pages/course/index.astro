@@ -39,7 +39,7 @@ const isDev = import.meta.env.DEV;
               </div>
             )
           }
-          <a class="btn btn-dark" href="#waitlist">Join the waitlist</a>
+          <a class="btn btn-dark" href="#waitlist" data-analytics-content="course_nav_waitlist">Join the waitlist</a>
         </div>
       </div>
     </nav>
@@ -57,7 +57,7 @@ const isDev = import.meta.env.DEV;
           and make it look the way you actually imagined.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-dark" href="#waitlist">Join the waitlist</a>
+          <a class="btn btn-dark" href="#waitlist" data-analytics-content="course_hero_waitlist">Join the waitlist</a>
           <a class="btn btn-light" href="#framework">See how it works</a>
         </div>
         <p class="hero-waitlist-note">
@@ -245,7 +245,7 @@ const isDev = import.meta.env.DEV;
             <h3>Be first in line when enrollment opens.</h3>
             <p>Join the waitlist for founding-member pricing and opportunities to win a private 1:1 editing session.</p>
           </div>
-          <a class="btn btn-dark" href="#waitlist">Join the waitlist</a>
+          <a class="btn btn-dark" href="#waitlist" data-analytics-content="course_midpage_waitlist">Join the waitlist</a>
         </div>
       </div>
     </section>
@@ -387,7 +387,7 @@ const isDev = import.meta.env.DEV;
             Signing up for this waitlist also signs you up for my email newsletter where I share editing tips,
             musings, and stories from my adventures. I respect your privacy, and you can unsubscribe at any time.
           </p>
-          <div class="kit-waitlist-embed">
+          <div class="kit-waitlist-embed" data-analytics-content="course_waitlist_form">
             <script async data-uid="91552a8174" src="https://ivanpkchan.kit.com/91552a8174/index.js" is:inline></script>
           </div>
         </div>
@@ -423,7 +423,7 @@ const isDev = import.meta.env.DEV;
         <div class="eyebrow">Estimated release: Fall 2026</div>
         <h2 class="display">Be among the first to learn how to see.</h2>
         <p>Join the waitlist for an exclusive founding-member discount and opportunities to win private 1:1 editing sessions.</p>
-        <a class="btn" style="background:var(--lime);color:#111;margin-top:18px" href="#waitlist">Join the waitlist</a>
+        <a class="btn" style="background:var(--lime);color:#111;margin-top:18px" href="#waitlist" data-analytics-content="course_final_waitlist">Join the waitlist</a>
       </div>
     </section>
 
@@ -436,5 +436,6 @@ const isDev = import.meta.env.DEV;
 
     <script src="../../scripts/landing-page.js"></script>
     <script src="../../scripts/chess-king.js"></script>
+    <script src="/funnel-analytics.js" is:inline></script>
   </body>
 </html>
