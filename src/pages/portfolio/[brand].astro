@@ -1,0 +1,178 @@
+---
+import '../../styles/global.css';
+import { portfolioBrands, type PortfolioBrand } from '../../data/portfolio';
+
+export function getStaticPaths() {
+  return portfolioBrands.map((brand) => ({
+    params: { brand: brand.slug },
+    props: { brand },
+  }));
+}
+
+const { brand } = Astro.props as { brand: PortfolioBrand };
+const title = `${brand.name} Campaign - Ivan Chan`;
+const description = `${brand.summary} Campaign by Ivan Chan.`;
+const isDev = import.meta.env.DEV;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico?v=2" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={`https://ivanpkchan.com/portfolio/${brand.slug}/`} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={brand.cover} />
+  </head>
+  <body class="portfolio-page portfolio-project-page">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <nav class="masking-nav commercial-nav portfolio-project-nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="/">IVAN <span>Chan</span></a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/commercial/">Commercial</a>
+          <a href="/course/">Course</a>
+          {
+            isDev && (
+              <div class="dev-menu">
+                <button type="button" class="dev-menu-toggle">Dev</button>
+                <div class="dev-menu-list" role="menu" aria-label="Development pages">
+                  <a href="/masking-guide/" role="menuitem">Masking Guide</a>
+                  <a href="/newsletter/" role="menuitem">Newsletter</a>
+                  <a href="/links/" role="menuitem">Links</a>
+                  <a href="/commercial/" role="menuitem">Commercial</a>
+                  <a href="/portfolio/" role="menuitem">Portfolio</a>
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <header class="portfolio-project-hero">
+        <img
+          src={brand.cover}
+          alt={`${brand.name} campaign by Ivan Chan`}
+          style={brand.coverPosition ? `object-position:${brand.coverPosition}` : undefined}
+        />
+        <div class="portfolio-project-shade" aria-hidden="true"></div>
+        <div class="wrap portfolio-project-heading" data-reveal>
+          <a class="portfolio-back-link" href="/portfolio/"><span aria-hidden="true">←</span> All campaigns</a>
+          <h1 class="display">{brand.name}</h1>
+        </div>
+      </header>
+
+      <section class="portfolio-project-gallery" aria-label={`${brand.name} campaign media`}>
+        {
+          brand.images.length > 0 && (
+            <div class="wrap portfolio-grid" data-stagger>
+              {brand.images.map((image, index) => (
+                <button
+                  type="button"
+                  class="portfolio-image-button"
+                  data-portfolio-image={image}
+                  data-portfolio-alt={`${brand.name} campaign photograph ${index + 1} by Ivan Chan`}
+                  aria-label={`Open ${brand.name} campaign image ${index + 1}`}
+                >
+                  <img src={image} alt={`${brand.name} campaign photograph ${index + 1} by Ivan Chan`} loading={index > 2 ? 'lazy' : 'eager'} />
+                </button>
+              ))}
+            </div>
+          )
+        }
+        {
+          brand.videos && (
+            <div class:list={['wrap', 'portfolio-videos', { 'portfolio-videos-multiple': brand.videos.length > 1 }]} data-stagger>
+              {brand.videos.map((video) => (
+                <figure class:list={['portfolio-video-item', `portfolio-video-${video.orientation ?? 'landscape'}`]}>
+                  {brand.videos && brand.videos.length > 1 && <figcaption>{video.title}</figcaption>}
+                  <video
+                    src={video.src}
+                    aria-label={`${brand.name}: ${video.title}`}
+                    poster={video.poster}
+                    preload="metadata"
+                    controls
+                    playsinline
+                  />
+                </figure>
+              ))}
+            </div>
+          )
+        }
+      </section>
+
+      <footer class="portfolio-project-footer">
+        <div class="wrap">
+          <a href="/portfolio/"><span aria-hidden="true">←</span> Back to all campaigns</a>
+        </div>
+      </footer>
+    </main>
+
+    <div class="portfolio-lightbox" data-portfolio-lightbox hidden>
+      <button type="button" class="portfolio-lightbox-close" data-portfolio-close aria-label="Close image">×</button>
+      <img src="" alt="" data-portfolio-lightbox-image />
+    </div>
+
+    <script src="../../scripts/landing-page.js"></script>
+    <script is:inline>
+      (() => {
+        const lightbox = document.querySelector('[data-portfolio-lightbox]');
+        const lightboxImage = document.querySelector('[data-portfolio-lightbox-image]');
+        const imageButtons = document.querySelectorAll('[data-portfolio-image]');
+        const closeButton = document.querySelector('[data-portfolio-close]');
+        const videos = document.querySelectorAll('.portfolio-video-item video');
+        let lastTrigger;
+
+        videos.forEach((video) => {
+          if (!(video instanceof HTMLVideoElement)) return;
+
+          video.addEventListener('play', () => {
+            videos.forEach((otherVideo) => {
+              if (otherVideo instanceof HTMLVideoElement && otherVideo !== video && !otherVideo.paused) {
+                otherVideo.pause();
+              }
+            });
+          });
+        });
+
+        if (!lightbox || !(lightboxImage instanceof HTMLImageElement) || !(closeButton instanceof HTMLButtonElement)) return;
+
+        const closeLightbox = () => {
+          lightbox.hidden = true;
+          document.body.classList.remove('portfolio-lightbox-open');
+          lightboxImage.removeAttribute('src');
+          lightboxImage.alt = '';
+          if (lastTrigger instanceof HTMLElement) lastTrigger.focus();
+        };
+
+        imageButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            lastTrigger = button;
+            lightboxImage.src = button.getAttribute('data-portfolio-image') || '';
+            lightboxImage.alt = button.getAttribute('data-portfolio-alt') || '';
+            lightbox.hidden = false;
+            document.body.classList.add('portfolio-lightbox-open');
+            closeButton.focus();
+          });
+        });
+
+        lightbox.addEventListener('click', closeLightbox);
+        closeButton.addEventListener('click', closeLightbox);
+        lightboxImage.addEventListener('click', (event) => event.stopPropagation());
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && !lightbox.hidden) closeLightbox();
+        });
+      })();
+    </script>
+    <script src="/funnel-analytics.js" is:inline></script>
+  </body>
+</html>

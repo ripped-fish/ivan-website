@@ -1,0 +1,21 @@
+{
+  "rules": [
+    {
+      "allowed": {
+        "origins": [
+          "https://ivanpkchan.com",
+          "http://localhost:4321"
+        ],
+        "methods": ["GET", "HEAD"],
+        "headers": ["Range"]
+      },
+      "exposeHeaders": [
+        "Accept-Ranges",
+        "Content-Length",
+        "Content-Range",
+        "ETag"
+      ],
+      "maxAgeSeconds": 86400
+    }
+  ]
+}

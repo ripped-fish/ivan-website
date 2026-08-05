@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # local source images kept before optimization
 unoptimized-assets/
+
+# local video masters are uploaded to Cloudflare R2
+Videos/
+
+# local image masters are replaced by optimized web copies
+Images/
