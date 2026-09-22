@@ -1,0 +1,245 @@
+---
+import '../../styles/media-kit.css';
+
+const title = 'Instagram Media Kit | Ivan Chan Photography';
+const description = 'Live Instagram audience and performance statistics for Ivan Chan Photography.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico?v=2" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://ivanpkchan.com/media-kit/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://ivanpkchan.com/assets/home/ivan-portrait.jpg" />
+  </head>
+  <body class="media-kit-page">
+    <header class="media-kit-nav">
+      <nav class="nav" aria-label="Media kit navigation">
+        <a class="brand" href="/">IVAN <span>Chan</span></a>
+        <div class="nav-links">
+          <a href="mailto:partnerships@ivanpkchan.com">Partnership inquiries</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="media-kit-hero">
+        <img class="media-kit-hero-image" src="/assets/home/ivan-portrait.jpg" alt="Ivan Chan in a mountain landscape" />
+        <div class="article-shell media-kit-hero-grid">
+          <div class="media-kit-hero-copy">
+            <div class="eyebrow">Instagram media kit · 2026</div>
+            <h1>Ivan Chan <em>Photography</em></h1>
+            <p>Travel, landscape and adventure photography—built around practical education, visual storytelling and a highly engaged creative community.</p>
+          </div>
+          <aside class="hero-stat" aria-label="Instagram audience size">
+            <span class="hero-stat-label">Instagram audience</span>
+            <strong class="hero-stat-value" data-field="followers" data-loading>—</strong>
+            <a data-field="profileLink" href="https://www.instagram.com/ivanpkhc/" target="_blank" rel="noopener noreferrer">@ivanpkhc</a>
+          </aside>
+        </div>
+      </section>
+
+      <div class="live-strip">
+        <div class="article-shell live-strip-inner">
+          <span class="live-status">Live Instagram data</span>
+          <span data-field="updatedAt">Loading latest snapshot…</span>
+        </div>
+      </div>
+
+      <section class="media-kit-section">
+        <div class="article-shell media-kit-intro">
+          <div>
+            <div class="eyebrow">About the audience</div>
+            <h2>Creative people who care about the craft.</h2>
+          </div>
+          <div class="media-kit-intro-copy">
+            <p>Ivan’s Instagram community follows the journey from capture to final image, with a focus on travel, adventure and thoughtful photo editing.</p>
+            <p>The figures below come directly from Instagram Insights and refresh throughout the day.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="media-kit-section metrics-section">
+        <div class="article-shell">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">Audience performance</div>
+              <h2>Reach with context.</h2>
+            </div>
+            <p class="section-note">A side-by-side view of recent activity and sustained performance. Values represent the selected reporting window.</p>
+          </div>
+
+          <div class="metric-table" aria-label="Instagram performance metrics">
+            <div class="metric-row" aria-hidden="true">
+              <span class="metric-name"></span>
+              <span class="window-label">Last 30 days</span>
+              <span class="window-label">Last 90 days</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Post reach</span>
+              <strong class="metric-value is-primary" data-field="reach30" data-loading>—</strong>
+              <strong class="metric-value" data-field="reach90" data-loading>—</strong>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Content views</span>
+              <strong class="metric-value is-primary" data-field="views30" data-loading>—</strong>
+              <strong class="metric-value" data-field="views90" data-loading>—</strong>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Interactions</span>
+              <strong class="metric-value is-primary" data-field="interactions30" data-loading>—</strong>
+              <strong class="metric-value" data-field="interactions90" data-loading>—</strong>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Profile visits</span>
+              <strong class="metric-value is-primary" data-field="profileViews30" data-loading>—</strong>
+              <strong class="metric-value" data-field="profileViews90" data-loading>—</strong>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Website clicks</span>
+              <strong class="metric-value is-primary" data-field="websiteClicks30" data-loading>—</strong>
+              <strong class="metric-value" data-field="websiteClicks90" data-loading>—</strong>
+            </div>
+          </div>
+          <p class="media-kit-error" data-error role="status">Live figures are temporarily unavailable. Please try again shortly.</p>
+        </div>
+      </section>
+
+      <section class="media-kit-section">
+        <div class="article-shell">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">Content performance</div>
+              <h2>Signals beyond the scroll.</h2>
+            </div>
+            <p class="section-note" style="color: var(--blog-muted)">Aggregate results from posts published in the last 30 days. Individual content examples can be added separately.</p>
+          </div>
+
+          <div class="performance-grid">
+            <article class="performance-card">
+              <span class="stat-label">Posts published</span>
+              <strong class="performance-value" data-field="posts30" data-loading>—</strong>
+              <p class="performance-context">Last 30 days</p>
+            </article>
+            <article class="performance-card">
+              <span class="stat-label">Average post reach</span>
+              <strong class="performance-value" data-field="averageReach30" data-loading>—</strong>
+              <p class="performance-context">Per published post</p>
+            </article>
+            <article class="performance-card">
+              <span class="stat-label">Median post reach</span>
+              <strong class="performance-value" data-field="medianReach30" data-loading>—</strong>
+              <p class="performance-context">Resistant to one-off spikes</p>
+            </article>
+            <article class="performance-card">
+              <span class="stat-label">Engagement rate</span>
+              <strong class="performance-value" data-field="engagementRate30" data-loading>—</strong>
+              <p class="performance-context">Interactions ÷ post reach</p>
+            </article>
+            <article class="performance-card">
+              <span class="stat-label">Saves</span>
+              <strong class="performance-value" data-field="saves30" data-loading>—</strong>
+              <p class="performance-context">High-intent audience action</p>
+            </article>
+            <article class="performance-card">
+              <span class="stat-label">Shares</span>
+              <strong class="performance-value" data-field="shares30" data-loading>—</strong>
+              <p class="performance-context">Organic distribution signal</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="media-kit-section media-kit-cta">
+        <div class="article-shell media-kit-cta-inner">
+          <div>
+            <div class="eyebrow">Work together</div>
+            <h2>Let’s make something worth remembering.</h2>
+          </div>
+          <a class="media-kit-button" href="mailto:partnerships@ivanpkchan.com">Start a conversation</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="media-kit-footer">
+      <div class="article-shell footer-row">
+        <span>© 2026 Ivan Chan Photography</span>
+        <span>Instagram statistics supplied by Meta</span>
+      </div>
+    </footer>
+
+    <script>
+      const endpoint = 'https://dashboard.ivanpkchan.com/api/public/media-kit/instagram';
+      const compactNumber = new Intl.NumberFormat('en-CA', { notation: 'compact', maximumFractionDigits: 1 });
+      const wholeNumber = new Intl.NumberFormat('en-CA', { maximumFractionDigits: 0 });
+
+      const setField = (name, value) => {
+        const element = document.querySelector(`[data-field="${name}"]`);
+        if (!element) return;
+        element.textContent = value;
+        element.removeAttribute('data-loading');
+      };
+
+      const formatMetric = (value) => compactNumber.format(Number(value) || 0);
+
+      async function loadMediaKit() {
+        try {
+          const response = await fetch(endpoint, { headers: { Accept: 'application/json' } });
+          if (!response.ok) throw new Error(`Media kit request failed with ${response.status}`);
+
+          const payload = await response.json();
+          if (!payload.ok) throw new Error('Media kit response was not successful');
+
+          const { profile, windows, generatedAt } = payload.data;
+          const thirty = windows.thirtyDays;
+          const ninety = windows.ninetyDays;
+
+          setField('followers', formatMetric(profile.followers));
+          setField('reach30', formatMetric(thirty.reach));
+          setField('reach90', formatMetric(ninety.reach));
+          setField('views30', formatMetric(thirty.views));
+          setField('views90', formatMetric(ninety.views));
+          setField('interactions30', formatMetric(thirty.interactions));
+          setField('interactions90', formatMetric(ninety.interactions));
+          setField('profileViews30', formatMetric(thirty.profileViews));
+          setField('profileViews90', formatMetric(ninety.profileViews));
+          setField('websiteClicks30', formatMetric(thirty.websiteClicks));
+          setField('websiteClicks90', formatMetric(ninety.websiteClicks));
+          setField('posts30', wholeNumber.format(thirty.postsPublished));
+          setField('averageReach30', formatMetric(thirty.averagePostReach));
+          setField('medianReach30', formatMetric(thirty.medianPostReach));
+          setField('engagementRate30', `${thirty.engagementRate.toFixed(1)}%`);
+          setField('saves30', formatMetric(thirty.saves));
+          setField('shares30', formatMetric(thirty.shares));
+
+          const profileLink = document.querySelector('[data-field="profileLink"]');
+          if (profileLink instanceof HTMLAnchorElement) {
+            profileLink.href = profile.profileUrl;
+            profileLink.textContent = `@${profile.username}`;
+          }
+
+          const updated = new Intl.DateTimeFormat('en-CA', {
+            dateStyle: 'medium',
+            timeStyle: 'short',
+            timeZone: 'America/Vancouver',
+          }).format(new Date(generatedAt));
+          setField('updatedAt', `${payload.stale ? 'Last available snapshot' : 'Updated'} ${updated} PT`);
+        } catch (error) {
+          console.error(error);
+          document.querySelector('[data-error]')?.classList.add('is-visible');
+          setField('updatedAt', 'Live data temporarily unavailable');
+        }
+      }
+
+      loadMediaKit();
+    </script>
+  </body>
+</html>

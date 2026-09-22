@@ -8,5 +8,9 @@ export default defineConfig({
   redirects: {
     '/adding-drama-to-your-skies-naturally/': '/blog/adding-drama-to-your-skies-naturally/',
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.endsWith('/media-kit/'),
+    }),
+  ],
 });
