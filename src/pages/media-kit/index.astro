@@ -18,46 +18,45 @@ const description = 'Live Instagram audience and performance statistics for Ivan
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://ivanpkchan.com/assets/home/ivan-portrait.jpg" />
+    <meta property="og:image" content="https://ivanpkchan.com/assets/media-kit/ivan-headshot.jpg" />
   </head>
   <body class="media-kit-page">
     <main class="media-sheet">
       <header class="media-topbar">
         <a class="brand" href="/">IVAN <span>Chan</span></a>
-        <div class="topbar-actions">
-          <span class="live-pill"><span aria-hidden="true"></span>Live data</span>
-          <a class="email-button email-button-small" href="mailto:partnerships@ivanpkchan.com">Email Ivan</a>
-        </div>
+        <span class="live-pill"><span aria-hidden="true"></span>Live data</span>
       </header>
 
       <section class="profile-block">
         <div class="profile-copy">
           <div class="eyebrow">Instagram media kit · 2026</div>
-          <h1>Ivan Chan <em>Photography</em></h1>
-          <p class="profile-tags">Travel <span>·</span> Landscape <span>·</span> Adventure <span>·</span> Education</p>
+          <h1>Ivan Chan</h1>
+          <p class="profile-tags">Travel &amp; Adventure Photographer</p>
           <div class="about-copy">
-            <h2>Visual stories for the creatively curious.</h2>
-            <p>Canadian photographer and educator sharing the journey from capture to final image with a global community of photographers, travellers and outdoor creatives.</p>
+            <p>Travel and adventure lover seeking to capture the spirit of adventure through photography, to showcase the world’s most extreme and exotic landscapes, and teach people how to edit photos better.</p>
           </div>
           <div class="profile-meta">
             <a data-field="profileLink" href="https://www.instagram.com/ivanpkhc/" target="_blank" rel="noopener noreferrer">@ivanpkhc</a>
-            <div>
-              <strong data-field="followers" data-loading>—</strong>
-              <span>followers</span>
+            <div class="follower-block">
+              <div class="follower-count">
+                <strong data-field="followers" data-loading>—</strong>
+                <span>followers</span>
+              </div>
+              <a class="email-button email-button-small" href="mailto:partnerships@ivanpkchan.com">partnerships@ivanpkchan.com</a>
             </div>
           </div>
         </div>
         <figure class="profile-photo">
-          <img src="/assets/home/ivan-portrait.jpg" alt="Ivan Chan in a mountain landscape" />
+          <img src="/assets/media-kit/ivan-headshot.jpg" alt="Portrait of Ivan Chan" />
         </figure>
       </section>
 
       <section class="insights-band" aria-labelledby="insights-heading">
         <div class="stats-panel">
           <div class="panel-head">
-            <div>
-              <span class="eyebrow">Instagram performance</span>
-              <h2 id="insights-heading">The numbers</h2>
+            <div class="panel-title">
+              <h2 id="insights-heading">Instagram Statistics</h2>
+              <span class="live-pill"><span aria-hidden="true"></span>Live data</span>
             </div>
             <div class="period-toggle" aria-label="Reporting period">
               <button type="button" data-period="30" aria-pressed="true">30 days</button>
@@ -69,6 +68,10 @@ const description = 'Live Instagram audience and performance statistics for Ivan
             <article class="stat-card">
               <div class="stat-name">Total reach <button class="info-tip" type="button" aria-label="How total reach is calculated" data-tooltip="Sum of post-level reach for measurable posts published in the selected period.">?</button></div>
               <strong data-metric="reach" data-loading>—</strong>
+            </article>
+            <article class="stat-card">
+              <div class="stat-name">Average reach <button class="info-tip" type="button" aria-label="How average reach is calculated" data-tooltip="Total measurable post reach divided by posts with available reach data in the selected period.">?</button></div>
+              <strong data-metric="averagePostReach" data-loading>—</strong>
             </article>
             <article class="stat-card">
               <div class="stat-name">Average likes <button class="info-tip" type="button" aria-label="How average likes is calculated" data-tooltip="Total likes divided by posts published in the selected period.">?</button></div>
@@ -95,9 +98,9 @@ const description = 'Live Instagram audience and performance statistics for Ivan
 
         <aside class="audience-panel" aria-labelledby="audience-heading">
           <div class="panel-head audience-head">
-            <div>
-              <span class="eyebrow">Last 90 days</span>
+            <div class="panel-title">
               <h2 id="audience-heading">Audience</h2>
+              <span class="live-pill live-pill-dark"><span aria-hidden="true"></span>Live data</span>
             </div>
             <button class="info-tip info-tip-light" type="button" aria-label="How audience demographics are calculated" data-tooltip="Follower demographics supplied by Instagram. Percentages use followers whose country or gender was available to Meta.">?</button>
           </div>
@@ -114,17 +117,19 @@ const description = 'Live Instagram audience and performance statistics for Ivan
         </aside>
       </section>
 
-      <section class="brand-block" aria-labelledby="brand-heading">
-        <div class="brand-intro">
-          <span class="eyebrow">Selected collaborations</span>
-          <h2 id="brand-heading">Trusted by brands that value the outdoors and the image.</h2>
-        </div>
-        <div class="brand-logos" aria-label="Selected partner brands">
-          <img src="/assets/home/adobe-logo.svg" alt="Adobe" />
-          <img src="/assets/home/client-sawyer.png" alt="Sawyer" />
-          <img src="/assets/home/client-gsi.png" alt="GSI Outdoors" />
-          <img src="/assets/home/client-stormtech.png" alt="Stormtech" />
-          <img src="/assets/portfolio/8bplus-logo-0c199b9b-1500-1.png" alt="8BPlus" />
+      <section class="client-strip" aria-label="Trusted clients">
+        <div class="article-shell">
+          <div class="client-head">
+            <h2>Trusted by these Amazing Clients</h2>
+          </div>
+          <div class="client-grid">
+            <img src="/assets/home/brand-hero.png" alt="" />
+            <img src="/assets/home/client-1.png" alt="Commercial photography sample" />
+            <img src="/assets/home/client-sawyer.png" alt="Sawyer commercial photography sample" />
+            <img src="/assets/home/client-gsi.png" alt="GSI commercial photography sample" />
+            <img src="/assets/home/client-stormtech.png" alt="Stormtech commercial photography sample" />
+            <img class="adobe-logo" src="/assets/home/adobe-logo.svg" alt="Adobe" />
+          </div>
         </div>
       </section>
 
