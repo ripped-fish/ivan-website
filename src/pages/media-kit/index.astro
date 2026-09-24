@@ -94,6 +94,40 @@ const collaborations = [
     href: 'https://www.instagram.com/reel/DNBPu3hx6IV/',
   },
 ] as const;
+
+const organicHighlights = [
+  {
+    slug: 'atacama-desert',
+    shortcode: 'DcbiD8aFl94',
+    title: 'Atacama Desert',
+    kind: 'carousel',
+    href: 'https://www.instagram.com/p/DcbiD8aFl94/?img_index=1',
+    slides: Array.from({ length: 15 }, (_, index) => ({
+      type: 'image',
+      src: `/assets/media-kit/organic/atacama/${String(index + 1).padStart(2, '0')}.jpg`,
+    })),
+  },
+  {
+    slug: 'foreground-pop',
+    shortcode: 'DOOrLCmEamN',
+    title: 'How to Make Your Foregrounds Pop',
+    kind: 'reel',
+    href: 'https://www.instagram.com/reels/DOOrLCmEamN/',
+    video: 'https://media.ivanpkchan.com/videos/organic-foreground-pop.mp4',
+    poster: '/assets/media-kit/organic/foreground-pop/poster.jpg',
+  },
+  {
+    slug: 'vancouver-moonrise',
+    shortcode: 'DbtbB4ojxY4',
+    title: 'Vancouver Moonrise',
+    kind: 'carousel',
+    href: 'https://www.instagram.com/p/DbtbB4ojxY4/?img_index=1',
+    slides: Array.from({ length: 4 }, (_, index) => ({
+      type: 'image',
+      src: `/assets/media-kit/organic/vancouver-moonrise/${String(index + 1).padStart(2, '0')}.jpg`,
+    })),
+  },
+] as const;
 ---
 
 <!doctype html>
@@ -292,6 +326,70 @@ const collaborations = [
         </div>
       </section>
 
+      <section class="collaborations-block organic-highlights-block" aria-labelledby="organic-highlights-heading">
+        <div class="collaborations-head">
+          <div>
+            <span class="eyebrow">Organic performance</span>
+            <h2 id="organic-highlights-heading">Organic Highlights</h2>
+          </div>
+          <p>High-performing educational and adventure content created for my own audience.</p>
+        </div>
+
+        <div class="collaborations-grid organic-highlights-grid">
+          {
+            organicHighlights.map((highlight) => (
+              <article class="collaboration-card" data-organic-card data-instagram-shortcode={highlight.shortcode}>
+                {highlight.kind === 'carousel' ? (
+                  <div class="collaboration-media collaboration-carousel" data-collaboration-carousel>
+                    <div class="collaboration-slides">
+                      {highlight.slides.map((slide, index) => (
+                        <div class="collaboration-slide" data-carousel-slide hidden={index !== 0} aria-hidden={index !== 0 ? 'true' : 'false'}>
+                          <img
+                            src={slide.src}
+                            alt={`${highlight.title}, slide ${index + 1}`}
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div class="carousel-controls">
+                      <button type="button" data-carousel-previous aria-label={`Previous slide in ${highlight.title}`}>←</button>
+                      <span><strong data-carousel-current>1</strong> / {highlight.slides.length}</span>
+                      <button type="button" data-carousel-next aria-label={`Next slide in ${highlight.title}`}>→</button>
+                    </div>
+                  </div>
+                ) : (
+                  <div class="collaboration-media">
+                    <video
+                      src={highlight.video}
+                      poster={highlight.poster}
+                      aria-label={highlight.title}
+                      preload="none"
+                      controls
+                      playsinline
+                      data-collaboration-video
+                    />
+                  </div>
+                )}
+                <div class="collaboration-copy">
+                  <div class="collaboration-meta">
+                    <span>Organic</span>
+                    <span>{highlight.kind}</span>
+                  </div>
+                  <h3>{highlight.title}</h3>
+                  <div class="collaboration-insights" data-collaboration-insights aria-label="Instagram post performance">
+                    <span data-insight-loading>Loading live insights…</span>
+                  </div>
+                  <a href={highlight.href} target="_blank" rel="noopener noreferrer">
+                    View on Instagram <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
       <section class="client-strip" aria-label="Trusted clients">
         <div class="article-shell">
           <div class="client-head">
@@ -324,7 +422,7 @@ const collaborations = [
     </main>
 
     <script>
-      const endpoint = 'https://dashboard.ivanpkchan.com/api/public/media-kit/instagram?schema=collaboration-insights-v1';
+      const endpoint = 'https://dashboard.ivanpkchan.com/api/public/media-kit/instagram?schema=featured-post-insights-v2';
       const compactNumber = new Intl.NumberFormat('en-CA', { notation: 'compact', maximumFractionDigits: 1 });
       const percentage = new Intl.NumberFormat('en-CA', { maximumFractionDigits: 1 });
       const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
@@ -367,12 +465,10 @@ const collaborations = [
         }));
       };
 
-      const renderCollaborations = (collaborations = []) => {
-        const insightsByShortcode = new Map(collaborations.map((item) => [item.shortcode, item]));
+      const renderPostInsights = (posts = []) => {
+        const insightsByShortcode = new Map(posts.map((item) => [item.shortcode, item]));
         const grid = document.querySelector('.collaborations-grid');
-        if (!grid) return;
-
-        const cards = [...grid.querySelectorAll('[data-collaboration-card]')];
+        const cards = [...document.querySelectorAll('[data-instagram-shortcode]')];
         cards.forEach((card) => {
           const shortcode = card.getAttribute('data-instagram-shortcode');
           if (!shortcode) return;
@@ -402,15 +498,18 @@ const collaborations = [
           }));
         });
 
-        const ranked = cards
+        if (!grid) return;
+
+        const collaborationCards = [...grid.querySelectorAll('[data-collaboration-card]')];
+        const ranked = collaborationCards
           .filter((card) => card.hasAttribute('data-instagram-shortcode'))
           .sort((left, right) => {
             const leftInsight = insightsByShortcode.get(left.getAttribute('data-instagram-shortcode'));
             const rightInsight = insightsByShortcode.get(right.getAttribute('data-instagram-shortcode'));
             return (rightInsight?.reach || 0) - (leftInsight?.reach || 0);
           });
-        const promaster = cards.find((card) => card.getAttribute('data-collaboration-slug') === 'promaster');
-        const sawyer = cards.find((card) => card.getAttribute('data-collaboration-slug') === 'sawyer');
+        const promaster = collaborationCards.find((card) => card.getAttribute('data-collaboration-slug') === 'promaster');
+        const sawyer = collaborationCards.find((card) => card.getAttribute('data-collaboration-slug') === 'sawyer');
         const ordered = [
           ...ranked.slice(0, 2),
           promaster,
@@ -419,6 +518,16 @@ const collaborations = [
           ...ranked.slice(4),
         ].filter(Boolean);
         grid.append(...ordered);
+
+        const organicGrid = document.querySelector('.organic-highlights-grid');
+        if (organicGrid) {
+          const organicCards = [...organicGrid.querySelectorAll('[data-organic-card]')].sort((left, right) => {
+            const leftInsight = insightsByShortcode.get(left.getAttribute('data-instagram-shortcode'));
+            const rightInsight = insightsByShortcode.get(right.getAttribute('data-instagram-shortcode'));
+            return (rightInsight?.reach || 0) - (leftInsight?.reach || 0);
+          });
+          organicGrid.append(...organicCards);
+        }
       };
 
       document.querySelectorAll('[data-period]').forEach((button) => {
@@ -469,12 +578,12 @@ const collaborations = [
           if (!payload.ok) throw new Error('Media kit response was not successful');
 
           mediaKitData = payload.data;
-          const { profile, audience, collaborations, generatedAt } = mediaKitData;
+          const { profile, audience, collaborations, organicHighlights, generatedAt } = mediaKitData;
           setField('followers', formatMetric(profile.followers));
           renderWindow();
           renderAudience('gender', audience.gender, (key) => genderLabels[key] || key);
           renderAudience('countries', audience.countries, (key) => regionNames.of(key) || key);
-          renderCollaborations(collaborations);
+          renderPostInsights([...(collaborations || []), ...(organicHighlights || [])]);
 
           const profileLink = document.querySelector('[data-field="profileLink"]');
           if (profileLink instanceof HTMLAnchorElement) {
