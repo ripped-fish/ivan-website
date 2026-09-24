@@ -3,6 +3,81 @@ import '../../styles/media-kit.css';
 
 const title = 'Instagram Media Kit | Ivan Chan Photography';
 const description = 'Live Instagram audience and performance statistics for Ivan Chan Photography.';
+
+const collaborations = [
+  {
+    brand: 'Adobe',
+    title: 'Lightroom Feature Release',
+    kind: 'reel',
+    video: 'https://media.ivanpkchan.com/videos/adobe-lightroom-new-features.mp4',
+    poster: '/assets/portfolio/adobe-video-poster.jpg',
+    href: 'https://www.instagram.com/reel/DQW-nz-CYoO/',
+  },
+  {
+    brand: 'Adobe',
+    title: 'Firefly Boards Carousel',
+    kind: 'carousel',
+    href: 'https://www.instagram.com/p/DcTwdXEm5-P/?img_index=1',
+    slides: [
+      { type: 'image', src: '/assets/media-kit/collaborations/firefly/01.jpg' },
+      { type: 'image', src: '/assets/media-kit/collaborations/firefly/02.jpg' },
+      { type: 'video', src: 'https://media.ivanpkchan.com/collaborations/adobe-firefly-boards/03.mp4', poster: '/assets/media-kit/collaborations/firefly/03-poster.jpg' },
+      { type: 'video', src: 'https://media.ivanpkchan.com/collaborations/adobe-firefly-boards/04.mp4', poster: '/assets/media-kit/collaborations/firefly/04-poster.jpg' },
+      { type: 'video', src: 'https://media.ivanpkchan.com/collaborations/adobe-firefly-boards/05.mp4', poster: '/assets/media-kit/collaborations/firefly/05-poster.jpg' },
+      { type: 'image', src: '/assets/media-kit/collaborations/firefly/06.jpg' },
+      { type: 'video', src: 'https://media.ivanpkchan.com/collaborations/adobe-firefly-boards/07.mp4', poster: '/assets/media-kit/collaborations/firefly/07-poster.jpg' },
+      { type: 'video', src: 'https://media.ivanpkchan.com/collaborations/adobe-firefly-boards/08.mp4', poster: '/assets/media-kit/collaborations/firefly/08-poster.jpg' },
+      { type: 'image', src: '/assets/media-kit/collaborations/firefly/09.jpg' },
+      { type: 'image', src: '/assets/media-kit/collaborations/firefly/10.jpg' },
+    ],
+  },
+  {
+    brand: 'Promaster',
+    title: 'Chronicle Tripod',
+    kind: 'reel',
+    video: 'https://media.ivanpkchan.com/videos/promaster-chronicle-tripod.mp4',
+    poster: '/assets/portfolio/promaster-chronicle-video-poster.jpg',
+  },
+  {
+    brand: 'Sawyer',
+    title: 'Sawyer Squeeze',
+    kind: 'reel',
+    video: 'https://media.ivanpkchan.com/videos/sawyer.mp4',
+    poster: '/assets/portfolio/sawyer-video-poster.jpg',
+  },
+  {
+    brand: 'Tamron',
+    title: '17-28mm F2.8 Di III Lens',
+    kind: 'reel',
+    video: 'https://media.ivanpkchan.com/videos/tamron-17-28mm-astro.mp4',
+    poster: '/assets/portfolio/tamron-17-28mm-astro-video-poster.jpg',
+    href: 'https://www.instagram.com/reel/DHqyIOTxAzH/',
+  },
+  {
+    brand: 'Tamron',
+    title: '35-100mm F:2.8 Di III Lens',
+    kind: 'reel',
+    video: 'https://media.ivanpkchan.com/videos/tamron-35-100mm.mp4',
+    poster: '/assets/portfolio/tamron-35-100mm-video-poster.jpg',
+    href: 'https://www.instagram.com/reel/DXrfmjfBpjn/',
+  },
+  {
+    brand: 'Tamron',
+    title: '90mm F:2.8 Di III Lens',
+    kind: 'reel',
+    video: 'https://media.ivanpkchan.com/videos/tamron-90mm.mp4',
+    poster: '/assets/portfolio/tamron-90mm-video-poster.jpg',
+    href: 'https://www.instagram.com/reel/DNYaQnVRwDZ/',
+  },
+  {
+    brand: 'Tamron',
+    title: '90mm F:2.8 Di III Lens - 2',
+    kind: 'reel',
+    video: 'https://media.ivanpkchan.com/videos/tamron-90mm-2.mp4',
+    poster: '/assets/portfolio/tamron-90mm-2-video-poster.jpg',
+    href: 'https://www.instagram.com/reel/DNBPu3hx6IV/',
+  },
+] as const;
 ---
 
 <!doctype html>
@@ -117,6 +192,83 @@ const description = 'Live Instagram audience and performance statistics for Ivan
         </aside>
       </section>
 
+      <section class="collaborations-block" aria-labelledby="collaborations-heading">
+        <div class="collaborations-head">
+          <div>
+            <span class="eyebrow">Selected brand work</span>
+            <h2 id="collaborations-heading">Featured Collaborations</h2>
+          </div>
+          <p>Reels and campaign carousels created for photography, travel, and outdoor brands.</p>
+        </div>
+
+        <div class="collaborations-grid">
+          {
+            collaborations.map((collaboration) => (
+              <article class="collaboration-card">
+                {collaboration.kind === 'carousel' ? (
+                  <div class="collaboration-media collaboration-carousel" data-collaboration-carousel>
+                    <div class="collaboration-slides">
+                      {collaboration.slides.map((slide, index) => (
+                        <div class="collaboration-slide" data-carousel-slide hidden={index !== 0} aria-hidden={index !== 0 ? 'true' : 'false'}>
+                          {slide.type === 'image' ? (
+                            <img
+                              src={slide.src}
+                              alt={`${collaboration.brand} ${collaboration.title}, slide ${index + 1}`}
+                              loading={index === 0 ? 'eager' : 'lazy'}
+                            />
+                          ) : (
+                            <video
+                              src={slide.src}
+                              poster={slide.poster}
+                              aria-label={`${collaboration.brand} ${collaboration.title}, video slide ${index + 1}`}
+                              preload="none"
+                              controls
+                              playsinline
+                              data-collaboration-video
+                            />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    <div class="carousel-controls">
+                      <button type="button" data-carousel-previous aria-label={`Previous slide in ${collaboration.title}`}>←</button>
+                      <span><strong data-carousel-current>1</strong> / {collaboration.slides.length}</span>
+                      <button type="button" data-carousel-next aria-label={`Next slide in ${collaboration.title}`}>→</button>
+                    </div>
+                  </div>
+                ) : (
+                  <div class="collaboration-media">
+                    <video
+                      src={collaboration.video}
+                      poster={collaboration.poster}
+                      aria-label={`${collaboration.brand}: ${collaboration.title}`}
+                      preload="none"
+                      controls
+                      playsinline
+                      data-collaboration-video
+                    />
+                  </div>
+                )}
+                <div class="collaboration-copy">
+                  <div class="collaboration-meta">
+                    <span>{collaboration.brand}</span>
+                    <span>{collaboration.kind}</span>
+                  </div>
+                  <h3>{collaboration.title}</h3>
+                  {
+                    collaboration.href && (
+                      <a href={collaboration.href} target="_blank" rel="noopener noreferrer">
+                        View on Instagram <span aria-hidden="true">↗</span>
+                      </a>
+                    )
+                  }
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
       <section class="client-strip" aria-label="Trusted clients">
         <div class="article-shell">
           <div class="client-head">
@@ -198,6 +350,38 @@ const description = 'Live Instagram audience and performance statistics for Ivan
           document.querySelectorAll('[data-period]').forEach((candidate) => candidate.setAttribute('aria-pressed', String(candidate === button)));
           renderWindow();
         });
+      });
+
+      const collaborationVideos = document.querySelectorAll('[data-collaboration-video]');
+      collaborationVideos.forEach((video) => {
+        if (!(video instanceof HTMLVideoElement)) return;
+        video.addEventListener('play', () => {
+          collaborationVideos.forEach((otherVideo) => {
+            if (otherVideo instanceof HTMLVideoElement && otherVideo !== video && !otherVideo.paused) otherVideo.pause();
+          });
+        });
+      });
+
+      document.querySelectorAll('[data-collaboration-carousel]').forEach((carousel) => {
+        const slides = [...carousel.querySelectorAll('[data-carousel-slide]')];
+        const current = carousel.querySelector('[data-carousel-current]');
+        const previous = carousel.querySelector('[data-carousel-previous]');
+        const next = carousel.querySelector('[data-carousel-next]');
+        let activeIndex = 0;
+
+        const showSlide = (index) => {
+          activeIndex = (index + slides.length) % slides.length;
+          slides.forEach((slide, slideIndex) => {
+            const isActive = slideIndex === activeIndex;
+            slide.toggleAttribute('hidden', !isActive);
+            slide.setAttribute('aria-hidden', String(!isActive));
+            if (!isActive) slide.querySelector('video')?.pause();
+          });
+          if (current) current.textContent = String(activeIndex + 1);
+        };
+
+        previous?.addEventListener('click', () => showSlide(activeIndex - 1));
+        next?.addEventListener('click', () => showSlide(activeIndex + 1));
       });
 
       async function loadMediaKit() {
