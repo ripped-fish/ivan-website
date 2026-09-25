@@ -74,11 +74,11 @@ const isDev = import.meta.env.DEV;
       <section class="portfolio-project-gallery" aria-label={`${brand.name} campaign media`}>
         {
           brand.images.length > 0 && (
-            <div class="wrap portfolio-grid" data-stagger>
+            <div class:list={['wrap', 'portfolio-grid', { 'portfolio-grid-original': brand.galleryLayout === 'original', 'is-visible': brand.images.length > 12 }]} data-stagger>
               {brand.images.map((image, index) => (
                 <button
                   type="button"
-                  class="portfolio-image-button"
+                  class:list={['portfolio-image-button', { 'portfolio-image-portrait': brand.portraitImages?.includes(image) }]}
                   data-portfolio-image={image}
                   data-portfolio-alt={`${brand.name} campaign photograph ${index + 1} by Ivan Chan`}
                   aria-label={`Open ${brand.name} campaign image ${index + 1}`}

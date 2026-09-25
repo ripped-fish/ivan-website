@@ -9,6 +9,8 @@ export type PortfolioBrand = {
   cardCover?: string;
   cardCoverPosition?: string;
   images: string[];
+  galleryLayout?: 'cropped' | 'original';
+  portraitImages?: string[];
   videos?: PortfolioVideo[];
 };
 
@@ -22,6 +24,52 @@ export type PortfolioVideo = {
 const asset = (filename: string) => `/assets/portfolio/${filename}`;
 
 export const portfolioBrands: PortfolioBrand[] = [
+  {
+    slug: 'harrison-river-valley',
+    name: 'Harrison River Valley Tourism',
+    eyebrow: 'Destination tourism campaign',
+    summary: 'A destination campaign capturing the landscapes, outdoor experiences, and quiet moments of Harrison River Valley, British Columbia.',
+    mediaType: 'photo',
+    cover: asset('harrison-river-valley/hero.jpg'),
+    cardCover: asset('harrison-river-valley/card-cover.jpg'),
+    galleryLayout: 'original',
+    portraitImages: [
+      'DSC09686-3.jpg',
+      'DSC09662.jpg',
+      'DSC00521-2.jpg',
+    ].map((filename) => asset(`harrison-river-valley/${filename}`)),
+    images: [
+      'DJI_20260917084832_0214_D.jpg',
+      'DSC00717.jpg',
+      'DSC00079-2.jpg',
+      'DJI_20260917083919_0196_D.jpg',
+      'DSC09651.jpg',
+      'DSC00609-2.jpg',
+      'DSC00564.jpg',
+      'DSC00757-2.jpg',
+      'DJI_20260915184423_0063_D.jpg',
+      'DSC00181-3.jpg',
+      'DSC00432.jpg',
+      'DJI_20260917084655_0209_D.jpg',
+      'DSC09767.jpg',
+      'DSC09820-2.jpg',
+      'DSC00451.jpg',
+      'DSC00254-2.jpg',
+      'DSC09930.jpg',
+      'DSC00124.jpg',
+      'DJI_20260916072256_0143_D.jpg',
+      'DSC00681.jpg',
+      'DSC00093.jpg',
+      'DSC00639-2.jpg',
+      'DSC00034-2.jpg',
+      'DSC09883.jpg',
+      'DSC00292.jpg',
+      'DSC00286.jpg',
+      'DSC09686-3.jpg',
+      'DSC09662.jpg',
+      'DSC00521-2.jpg',
+    ].map((filename) => asset(`harrison-river-valley/${filename}`)),
+  },
   {
     slug: 'stormtech',
     name: 'Stormtech',

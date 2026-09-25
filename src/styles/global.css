@@ -703,6 +703,10 @@ footer{background:var(--ink);color:white;padding:35px 0}
 .portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .portfolio-image-button{appearance:none;border:0;background:#0d0f0c;cursor:pointer;display:block;margin:0;padding:0;overflow:hidden;position:relative;aspect-ratio:4/5}
 .portfolio-image-button img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease-out),filter .45s ease}
+.portfolio-grid-original{grid-template-columns:repeat(6,minmax(0,1fr));align-items:start}
+.portfolio-grid-original .portfolio-image-button{grid-column:span 3;aspect-ratio:auto}
+.portfolio-grid-original .portfolio-image-portrait{grid-column:span 2}
+.portfolio-grid-original .portfolio-image-button img{height:auto;object-fit:contain}
 .portfolio-image-button:after{content:"View";position:absolute;left:14px;bottom:14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(17,19,16,.7);color:white;padding:7px 11px;font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:opacity .25s ease,transform .25s var(--ease-out)}
 .portfolio-image-button:hover img,.portfolio-image-button:focus-visible img{transform:scale(1.055);filter:saturate(1.08) contrast(1.04)}
 .portfolio-image-button:hover:after,.portfolio-image-button:focus-visible:after{opacity:1;transform:none}
@@ -732,6 +736,7 @@ footer{background:var(--ink);color:white;padding:35px 0}
  .commercial-testimonial-grid,.commercial-split,.commercial-about-grid{grid-template-columns:1fr}
  .commercial-about-grid figure{max-width:560px}
  .commercial-image-grid,.portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .portfolio-grid-original{grid-template-columns:repeat(6,minmax(0,1fr))}
  .commercial-steps{grid-template-columns:1fr}
  .portfolio-videos-multiple{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -749,6 +754,8 @@ footer{background:var(--ink);color:white;padding:35px 0}
  .portfolio-card-copy h2{font-size:3rem}
  .portfolio-card-media>span{opacity:1;transform:none}
  .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .portfolio-grid-original{grid-template-columns:1fr}
+ .portfolio-grid-original .portfolio-image-button,.portfolio-grid-original .portfolio-image-portrait{grid-column:span 1}
  .portfolio-hero{padding:132px 0 56px}
  .portfolio-index{padding:44px 0 76px}
  .portfolio-project-hero{min-height:78vh}
